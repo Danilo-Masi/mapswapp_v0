@@ -108,7 +108,7 @@ export default function Footer() {
 
             {/* BRAND BOTTOM */}
             <div className="w-full h-auto min-h-[10svh] md:min-h-[35svh] relative flex justify-center ">
-                <h1 className="text-6xl md:text-[15rem] font-extrabold text-center absolute -bottom-2 md:-bottom-10">Maspwapp</h1>
+                <h1 className="text-6xl md:text-[15rem] font-black text-center absolute -bottom-2 md:-bottom-10">Maspwapp</h1>
             </div>
 
         </footer>

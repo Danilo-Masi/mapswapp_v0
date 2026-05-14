@@ -2,12 +2,10 @@ import Fastify from "fastify";
 import 'dotenv/config';
 // Cors plugin
 import fastifyCors from "@fastify/cors";
-import waitlistRoutes from "./routes/waitlist/waitlist.mjs";
 // Routes
-
+import waitlistRoutes from "./routes/waitlist/waitlist.mjs";
 
 const fastify = Fastify({ logger: true });
-
 
 fastify.register(fastifyCors, {
     origin: ["http://localhost:5173"],

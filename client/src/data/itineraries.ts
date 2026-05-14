@@ -1,17 +1,23 @@
-import rome from "../assets/itineraries/rome_card.jpg";
-import rome2 from "../assets/itineraries/rome_card_2.jpg";
-import amsterdam from "../assets/itineraries/amsterdam_card.jpg";
-import amsterdam2 from "../assets/itineraries/amsterdam_card_3.webp";
-import budapest from "../assets/itineraries/budapest_card.jpg";
-import budapest2 from "../assets/itineraries/budapest_card_2.jpg";
-import london from "../assets/itineraries/london_card.jpg";
-import london2 from "../assets/itineraries/london_card_2.jpg";
-import paris from "../assets/itineraries/paris_card.jpg";
-import paris2 from "../assets/itineraries/paris_card_2.jpg";
-import lisbon from "../assets/itineraries/lisbon_card.jpg";
-import lisbon2 from "../assets/itineraries/lisbon_card_2.jpg";
-import newyork from "../assets/itineraries/newyork_card.jpg";
-import newyork2 from "../assets/itineraries/newyork_card_2.jpg";
+import rome from "../assets/itineraries/rome_card.webp";
+import rome2 from "../assets/itineraries/rome_card_2.webp";
+import amsterdam from "../assets/itineraries/amsterdam_card.webp";
+import amsterdam2 from "../assets/itineraries/amsterdam_card_2.webp";
+import budapest from "../assets/itineraries/budapest_card.webp";
+import budapest2 from "../assets/itineraries/budapest_card_2.webp";
+import london from "../assets/itineraries/london_card.webp";
+import london2 from "../assets/itineraries/london_card_2.webp";
+import paris from "../assets/itineraries/paris_card.webp";
+import paris2 from "../assets/itineraries/paris_card_2.webp";
+import lisbon from "../assets/itineraries/lisbon_card.webp";
+import lisbon2 from "../assets/itineraries/lisbon_card_2.webp";
+import newyork from "../assets/itineraries/newyork_card.webp";
+import newyork2 from "../assets/itineraries/newyork_card_2.webp";
+import seville from "../assets/itineraries/seville_card.webp";
+import seville2 from "../assets/itineraries/seville_card_2.webp";
+import sanfrancisco from "../assets/itineraries/sanfrancisco_card.webp";
+import sanfrancisco2 from "../assets/itineraries/sanfrancisco_card_2.webp";
+import venice from "../assets/itineraries/venice_card.webp";
+import venice2 from "../assets/itineraries/venice_card_2.webp";
 
 type ItineraryType = {
     id: string,
@@ -33,6 +39,7 @@ type ItineraryType = {
 }
 
 export const itineraries: ItineraryType[] = [
+    //// BEST VALUE ////
     // PORTUGAL //
     {
         id: "lisbon_by_mapswapp",
@@ -56,13 +63,106 @@ export const itineraries: ItineraryType[] = [
             { id: "4", title: "Dear Breakfast", position: { lat: 38.70959, lng: -9.15128 }, type: "food", adress: "R. das Gaivotas 17, 1200-163 Lisboa, Portugal" }
         ]
     },
+    // HUNGARY //
+    {
+        id: "budapest_by_mapswapp",
+        title: "Budapest, slow mornings and late nights",
+        description: "A balanced route through the city’s baths, viewpoints, ruin bars, and local corners that make Budapest feel alive after sunset.",
+        city: "Budapest",
+        country: "Hungary",
+        continent: "Europe",
+        cover: budapest, // TO UPDATE
+        cover2: budapest2, // TO UPDATE
+        price: 14.99,
+        duration: 3,
+        period: "autumn",
+        badge: "best_value",
+        spots: 33,
+        position: { lat: 47.4979, lng: 19.0402 },
+        previewSpots: [
+            { id: "1", title: "Buda Castle", position: { lat: 47.4962, lng: 19.03956 }, type: "activity", adress: "Budapest, Szent György tér, 1014 Hungary" },
+            { id: "2", title: "Fisherman’s Bastion", position: { lat: 47.50218, lng: 19.03478 }, type: "activity", adress: "Budapest, 1014 Hungary" },
+            { id: "3", title: "Matthias Church", position: { lat: 47.50195, lng: 19.03416 }, type: "activity", adress: "Budapest, Szentháromság tér 2, 1014 Hungary" },
+            { id: "4", title: "Ruszwurm Confectionery", position: { lat: 47.50122, lng: 19.033 }, type: "food", adress: "Budapest, Szentháromság u. 7, 1014 Hungary" }
+        ]
+    },
+    // NETHERLANDS //
+    {
+        id: "amsterdam_by_mapswapp",
+        title: "Amsterdam, beyond the postcard",
+        description: "A well-paced route through the city’s canals, creative corners, and everyday spots that make Amsterdam feel lived-in, not touristy.",
+        city: "Amsterdam",
+        country: "Netherlands",
+        continent: "Europe",
+        cover: amsterdam, // TO UPDATE
+        cover2: amsterdam2, // TO UPDATE
+        price: 14.99,
+        duration: 3,
+        period: "autumn",
+        badge: "best_value",
+        spots: 32,
+        position: { lat: 52.3676, lng: 4.9041 },
+        previewSpots: [
+            { id: "1", title: "Dam Square", position: { lat: 52.37307, lng: 4.89264 }, type: "activity", adress: "Dam, 1012 Amsterdam, Netherlands" },
+            { id: "2", title: "Begijnhof", position: { lat: 52.36962, lng: 4.89018 }, type: "activity", adress: "Begijnhof, 1012 Amsterdam, Netherlands" },
+            { id: "3", title: "De Negen Straatjes", position: { lat: 52.37038, lng: 4.88605 }, type: "activity", adress: "Negen Straatjes, 1016 Amsterdam, Netherlands" },
+            { id: "4", title: "Koffiespot", position: { lat: 52.3694, lng: 4.88059 }, type: "food", adress: "Elandsgracht 53, 1016 TN Amsterdam, Netherlands" }
+        ]
+    },
+    // SPAIN //
+    {
+        id: "seville_by_mapswapp",
+        title: "Seville, the heart of Andalusia",
+        description: "A vibrant tour through Seville's historic streets, flamenco venues, and local markets that showcase the city's rich cultural heritage.",
+        city: "Seville",
+        country: "Spain",
+        continent: "Europe",
+        cover: seville, // TO UPDATE
+        cover2: seville2, // TO UPDATE
+        price: 15.99,
+        duration: 3,
+        period: "spring",
+        badge: "best_value",
+        spots: 35,
+        position: { lat: 37.3891, lng: -5.9845 },
+        previewSpots: [
+            { id: "1", title: "Real Alcázar Gardens", position: { lat: 37.3830, lng: -5.9902 }, type: "activity", adress: "Patio de Banderas, s / n, 41004 Seville, Spain" },
+            { id: "2", title: "Barrio Santa Cruz", position: { lat: 37.3862, lng: -5.9895 }, type: "activity", adress: "Barrio de Santa Cruz, 41004 Seville, Spain" },
+            { id: "3", title: "La Cacharrería", position: { lat: 37.3931, lng: -5.9926 }, type: "food", adress: "Calle Regina, 14, 41003 Seville, Spain" },
+            { id: "4", title: "Metropol Parasol Rooftop", position: { lat: 37.3933, lng: -5.9917 }, type: "activity", adress: "Plaza de la Encarnación, s / n, 41003 Seville, Spain" }
+        ]
+    },
+    // ITALY //
+    {
+        id: "venice_by_mapswapp",
+        title: "Venice, the city of dreams",
+        description: "A romantic journey through Venice's canals, historic squares, and charming neighborhoods that capture the essence of this unique city.",
+        city: "Venice",
+        country: "Italy",
+        continent: "Europe",
+        cover: venice, // TO UPDATE
+        cover2: venice2, // TO UPDATE
+        price: 9.99,
+        duration: 2,
+        period: "summer",
+        badge: "best_value",
+        spots: 22,
+        position: { lat: 45.4408, lng: 12.3155 },
+        previewSpots: [
+            { id: "1", title: "Rialto Market", position: { lat: 45.4380, lng: 12.3359 }, type: "activity", adress: "Campo de la Pescaria, 30125 Venice, Italy" },
+            { id: "2", title: "Cannaregio Canals", position: { lat: 45.4445, lng: 12.3298 }, type: "activity", adress: "Fondamenta della Misericordia, 30121 Venice, Italy" },
+            { id: "3", title: "Torrefazione Cannaregio", position: { lat: 45.4449, lng: 12.3278 }, type: "food", adress: "Fondamenta dei Ormesini, 2804, 30121 Venice, Italy" },
+            { id: "4", title: "Madonna dell’Orto", position: { lat: 45.4468, lng: 12.3270 }, type: "activity", adress: "Cannaregio, 3512, 30121 Venice, Italy" }
+        ]
+    },
+    //// TRENDING ////
     // UNITED KINGDOM //
     {
         id: "london_by_mapswapp",
         title: "London, without the chaos",
         description: "Move through the city with a clear plan, hit the icons at the right time, and slip into the neighborhoods most people never reach.",
         city: "London",
-        country: "United Kingdom",
+        country: "UK",
         continent: "Europe",
         cover: london, // TO UPDATE
         cover2: london2, // TO UPDATE
@@ -102,29 +202,6 @@ export const itineraries: ItineraryType[] = [
             { id: "4", title: "Café de Flore", position: { lat: 48.85415, lng: 2.3326 }, type: "food", adress: "172 Bd Saint-Germain, 75006 Paris, France" }
         ]
     },
-    // HUNGARY //
-    {
-        id: "budapest_by_mapswapp",
-        title: "Budapest, slow mornings and late nights",
-        description: "A balanced route through the city’s baths, viewpoints, ruin bars, and local corners that make Budapest feel alive after sunset.",
-        city: "Budapest",
-        country: "Hungary",
-        continent: "Europe",
-        cover: budapest, // TO UPDATE
-        cover2: budapest2, // TO UPDATE
-        price: 14.99,
-        duration: 3,
-        period: "autumn",
-        badge: "best_value",
-        spots: 33,
-        position: { lat: 47.4979, lng: 19.0402 },
-        previewSpots: [
-            { id: "1", title: "Buda Castle", position: { lat: 47.4962, lng: 19.03956 }, type: "activity", adress: "Budapest, Szent György tér, 1014 Hungary" },
-            { id: "2", title: "Fisherman’s Bastion", position: { lat: 47.50218, lng: 19.03478 }, type: "activity", adress: "Budapest, 1014 Hungary" },
-            { id: "3", title: "Matthias Church", position: { lat: 47.50195, lng: 19.03416 }, type: "activity", adress: "Budapest, Szentháromság tér 2, 1014 Hungary" },
-            { id: "4", title: "Ruszwurm Confectionery", position: { lat: 47.50122, lng: 19.033 }, type: "food", adress: "Budapest, Szentháromság u. 7, 1014 Hungary" }
-        ]
-    },
     // ITALY //
     {
         id: "rome_by_mapswapp",
@@ -148,29 +225,6 @@ export const itineraries: ItineraryType[] = [
             { id: "4", title: "Ai Tre Scalini", position: { lat: 41.89628, lng: 12.49051 }, type: "food", adress: "Via Panisperna, 251, 00184 Rome" }
         ]
     },
-    // NETHERLANDS //
-    {
-        id: "amsterdam_by_mapswapp",
-        title: "Amsterdam, beyond the postcard",
-        description: "A well-paced route through the city’s canals, creative corners, and everyday spots that make Amsterdam feel lived-in, not touristy.",
-        city: "Amsterdam",
-        country: "Netherlands",
-        continent: "Europe",
-        cover: amsterdam, // TO UPDATE
-        cover2: amsterdam2, // TO UPDATE
-        price: 14.99,
-        duration: 3,
-        period: "autumn",
-        badge: "best_value",
-        spots: 32,
-        position: { lat: 52.3676, lng: 4.9041 },
-        previewSpots: [
-            { id: "1", title: "Dam Square", position: { lat: 52.37307, lng: 4.89264 }, type: "activity", adress: "Dam, 1012 Amsterdam, Netherlands" },
-            { id: "2", title: "Begijnhof", position: { lat: 52.36962, lng: 4.89018 }, type: "activity", adress: "Begijnhof, 1012 Amsterdam, Netherlands" },
-            { id: "3", title: "De Negen Straatjes", position: { lat: 52.37038, lng: 4.88605 }, type: "activity", adress: "Negen Straatjes, 1016 Amsterdam, Netherlands" },
-            { id: "4", title: "Koffiespot", position: { lat: 52.3694, lng: 4.88059 }, type: "food", adress: "Elandsgracht 53, 1016 TN Amsterdam, Netherlands" }
-        ]
-    },
     // USA //
     {
         id: "newyork_by_mapswapp",
@@ -181,16 +235,39 @@ export const itineraries: ItineraryType[] = [
         continent: "Americas",
         cover: newyork, // TO UPDATE
         cover2: newyork2, // TO UPDATE
-        price: 25.99, // TO UPDATE
-        duration: 7, // TO UPDATE 
-        period: "autumn", // TO UPDATE
+        price: 34.99,
+        duration: 7,
+        period: "autumn",
         badge: "trending",
-        spots: 59, // TO UPDATE
+        spots: 77,
         position: { lat: 40.7128, lng: -74.0060 },
         previewSpots: [
-            { id: "1", title: "Metropolitan Museum of Art", position: { lat: 40.77943, lng: -73.96324 }, type: "activity" }, // TO UPDATE
-            { id: "2", title: "Central Park", position: { lat: 40.78255, lng: -73.96558 }, type: "activity" }, // TO UPDATE
-            { id: "3", title: "Bow Bridge", position: { lat: 40.77575, lng: -73.97177 }, type: "photo" } // TO UPDATE
+            { id: "1", title: "Washington Square Park", position: { lat: 40.7308, lng: -73.9973 }, type: "activity", adress: "Washington Square, New York, NY 10012, USA" },
+            { id: "2", title: "Bleecker Street & West Village", position: { lat: 40.7317, lng: -74.0037 }, type: "activity", adress: "Bleecker St, New York, NY 10014, USA" },
+            { id: "3", title: "Maman Soho", position: { lat: 40.7207, lng: -74.0008 }, type: "food", adress: "239 Centre St, New York, NY 10013, USA" },
+            { id: "4", title: "Little Island at Pier 55", position: { lat: 40.7420, lng: -74.0107 }, type: "activity", adress: "Pier 55, Hudson River Greenway, New York, NY 10014, USA" }
         ]
-    }
+    },
+    {
+        id: "sanfrancisco_by_mapswapp",
+        title: "San Francisco, the city that never sleeps",
+        description: "A vibrant tour through San Francisco's iconic landmarks, diverse neighborhoods, and local experiences that showcase the city's unique character.",
+        city: "San Francisco",
+        country: "USA",
+        continent: "Americas",
+        cover: sanfrancisco, // TO UPDATE
+        cover2: sanfrancisco2, // TO UPDATE
+        price: 29.99,
+        duration: 6,
+        period: "spring",
+        badge: "trending",
+        spots: 66,
+        position: { lat: 37.7749, lng: -122.4194 },
+        previewSpots: [
+            { id: "1", title: "Ferry Building & Embarcadero", position: { lat: 37.7955, lng: -122.3937 }, type: "activity", adress: "1 Ferry Building, San Francisco, CA 94111, USA" },
+            { id: "2", title: "Blue Bottle Coffee at Mint Plaza", position: { lat: 37.7824, lng: -122.4079 }, type: "food", adress: "66 Mint St, San Francisco, CA 94103, USA" },
+            { id: "3", title: "Balmy Alley Murals", position: { lat: 37.7510, lng: -122.4110 }, type: "activity", adress: "50 Balmy St, San Francisco, CA 94110, USA" },
+            { id: "4", title: "Dolores Park Viewpoint", position: { lat: 37.7596, lng: -122.4269 }, type: "activity", adress: "Dolores St & 19th St, San Francisco, CA 94114, USA" }
+        ]
+    },
 ];

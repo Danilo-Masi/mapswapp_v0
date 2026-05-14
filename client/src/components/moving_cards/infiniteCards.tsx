@@ -2,11 +2,13 @@ import { itineraries } from "@/data/itineraries"
 import { useMemo } from "react"
 import AdCard from "./AdCard";
 
-const items = itineraries;
+const items = itineraries.filter((i) => i.badge === "trending");
+const items2 = itineraries.filter((i) => i.badge === "best_value");
 
 export default function InfiniteCards() {
 
     const duplicated = useMemo(() => [...items, ...items], [items]);
+    const duplicated2 = useMemo(() => [...items2, ...items2], [items2]);
 
     return (
         <div className="w-full flex flex-col gap-5 overflow-hidden relative">
@@ -27,7 +29,7 @@ export default function InfiniteCards() {
                 ))}
             </div>
             <div className="flex w-max animate-scroll-reverse gap-6">
-                {duplicated.map((item, i) => (
+                {duplicated2.map((item, i) => (
                     <AdCard
                         key={i}
                         id={item.id}

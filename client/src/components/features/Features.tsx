@@ -4,9 +4,9 @@ import { Switch } from "../ui/switch";
 // Data
 import { days } from "@/data/mapData";
 // Images
-import newyork_card from "../../assets/itineraries/newyork_card.jpg";
-import lisbon_card from "../../assets/itineraries/lisbon_card.jpg";
-import london_card from "../../assets/itineraries/london_card.jpg";
+import newyork_card from "../../assets/itineraries/newyork_card.webp";
+import lisbon_card from "../../assets/itineraries/lisbon_card.webp";
+import london_card from "../../assets/itineraries/london_card.webp";
 
 interface TextSectionProps {
     span: string;
@@ -82,10 +82,10 @@ function Feature1() {
                     <div className="absolute bottom-0 p-4 text-white flex flex-col gap-1">
                         <span className="text-xs text-white/70">New York</span>
                         <h3 className="text-lg font-semibold leading-tight text-balance">
-                            5 days in NYC — Real local experience
+                            7 days in NYC — Real local experience
                         </h3>
                         <span className="text-sm font-medium text-blue-300">
-                            €19.99
+                            €34.99
                         </span>
                     </div>
                 </div>
@@ -125,8 +125,8 @@ function Feature2({ daySelected, setDaySelected }: { daySelected: number; setDay
                                 key={day.id}
                                 className={`flex flex-col gap-2 px-4 py-3 rounded-xl border shadow-sm transition cursor-pointer ${isActive ? "bg-blue-50 border-blue-300 scale-[1.02]" : "bg-white border-zinc-200 hover:scale-[1.02]"}`}
                                 onClick={() => setDaySelected(day.id)}>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm font-semibold text-zinc-800">
+                                <div className="flex items-center justify-between gap-3">
+                                    <span className="text-sm font-semibold text-clip text-zinc-800">
                                         {day.title}
                                     </span>
                                     <Switch
@@ -146,7 +146,7 @@ function Feature2({ daySelected, setDaySelected }: { daySelected: number; setDay
 
 function Feature3({ daySelected }: { daySelected: number }) {
     return (
-        <div className="w-full md:w-1/3 flex flex-col items-center justify-between gap-6 overflow-hidden p-6 pb-0 border border-zinc-200 rounded-2xl bg-zinc-50">
+        <div className="w-full md:w-1/3 h-full flex flex-col items-center justify-between gap-6 overflow-hidden p-6 pb-0 border border-zinc-200 rounded-2xl bg-zinc-50">
             {/* TEXT */}
             <div className="w-full h-min flex flex-col items-center text-center">
                 <TextSection
@@ -172,8 +172,8 @@ export default function Features() {
             <h1 className="text-6xl max-w-xl font-extrabold text-center text-zinc-900 leading-tight text-balance">
                 Plan less. Experience more.
             </h1>
-            <div className="w-full h-auto md:h-[110svh] flex flex-col md:flex-row gap-16 md:gap-10">
-                <div className="w-full md:w-2/3 h-full flex flex-col items-start justify-start gap-16 md:gap-10">
+            <div className="w-full h-auto md:h-[110svh] flex flex-col md:flex-row gap-16 md:gap-5">
+                <div className="w-full md:w-2/3 h-full flex flex-col items-start justify-start gap-16 md:gap-5">
                     <Feature1 />
                     <Feature2
                         daySelected={daySelected}

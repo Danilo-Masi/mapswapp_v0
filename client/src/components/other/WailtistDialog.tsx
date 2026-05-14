@@ -9,19 +9,36 @@ import { Spinner } from "../ui/spinner";
 import { Globe, Sparkles } from "lucide-react";
 // API
 import { subscribeToWaitlist } from "@/api/subscribe_waitlist";
+import { toast } from "sonner";
 
 export default function WaitlistDialog() {
     const { isWaitlistDialogOpen, setWaitlistDialogOpen, setPreviewOpen, setSubscribedSuccessfully } = useAppContext();
     const [email, setEmail] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // Validate email format (basic validation)
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     const handleSubscribe = async () => {
         // Prevent empty email
-        if (!email.trim()) return;
+        const trimmedEmail = email.trim().toLowerCase();
+        if (trimmedEmail === "") {
+            toast.warning("Email address cannot be empty.");
+            return;
+        }
+        // Validate email format
+        if (!isValidEmail(trimmedEmail)) {
+            toast.warning("Please enter a valid email address.");
+            setEmail("");
+            return;
+        }
         try {
             setIsSubmitting(true);
             // Function call
-            const result = await subscribeToWaitlist(email);
+            const result = await subscribeToWaitlist(trimmedEmail);
             // Function error
             if (!result.ok) {
                 console.error("Failed to subscribe to waitlist:", result.error);

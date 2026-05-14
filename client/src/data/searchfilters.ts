@@ -6,6 +6,7 @@ export const categories = [
 export const destinations = {
     europe: [
         { value: "italy", label: "Italy", flag: "🇮🇹" },
+        { value: "spain", label: "Spain", flag: "🇪🇸" },
         { value: "france", label: "France", flag: "🇫🇷" },
         { value: "netherlands", label: "Netherlands", flag: "🇳🇱" },
         { value: "hungary", label: "Hungary", flag: "🇭🇺" },

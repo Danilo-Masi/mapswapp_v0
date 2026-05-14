@@ -48,12 +48,12 @@ export default function PhoneMockup({ daySelected }: { daySelected: number }) {
                     </h3>
                     <h2 className="text-sm font-semibold text-zinc-900">
                         {daySelected === 1
-                            ? "Central Park, The Met, and hidden gems in Manhattan"
+                            ? "The Met, Central Park paths, and elegant Manhattan corners"
                             : daySelected === 2
-                                ? "Brooklyn vibes: street art, food, and culture"
-                                : "Off the beaten path: SoHo, local eats, and authentic NYC life"
-                        }
+                                ? "Midtown landmarks, modern art, and classic New York energy"
+                                : "Wall Street history, waterfront views, and downtown hidden streets"}
                     </h2>
+
                 </div>
 
             </div>

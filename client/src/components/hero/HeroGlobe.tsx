@@ -7,6 +7,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "../ui/input-group";
 import { Spinner } from "../ui/spinner";
+import { toast } from "sonner";
 const Globe3D = lazy(() => import("@/components/ui/3d-globe"));
 import { Sparkles } from "lucide-react";
 // Components
@@ -21,7 +22,6 @@ import gsap from "gsap";
 import useIsMobile from "@/lib/screenWidth";
 // API
 import { subscribeToWaitlist } from "@/api/subscribe_waitlist";
-import { toast } from "sonner";
 
 export default function HeroGlobe() {
     const textRef = useRef(null);
@@ -66,13 +66,30 @@ export default function HeroGlobe() {
         pointLightIntensity: 5,
     }), []);
 
+    // Validate email format (basic validation)
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    // Handle waitlist subscription
     const handleSubscribe = async () => {
         // Prevent empty email
-        if (!email.trim()) return;
+        const trimmedEmail = email.trim().toLowerCase();
+        if (trimmedEmail === "") {
+            toast.warning("Email address cannot be empty.");
+            return;
+        }
+        // Validate email format
+        if (!isValidEmail(trimmedEmail)) {
+            toast.warning("Please enter a valid email address.");
+            setEmail("");
+            return;
+        }
         try {
             setIsSubmitting(true);
             // Function call
-            const result = await subscribeToWaitlist(email);
+            const result = await subscribeToWaitlist(trimmedEmail);
             // Function error
             if (!result.ok) {
                 console.error("Failed to subscribe to waitlist:", result.error);
@@ -96,7 +113,7 @@ export default function HeroGlobe() {
     };
 
     return (
-        <section className="w-full h-auto flex flex-col items-center gap-y-10 relative">
+        <section className="w-full h-auto flex flex-col items-center gap-y-10 md:gap-y-6 relative">
 
             {/* BACKGROUND */}
             <img
@@ -110,6 +127,7 @@ export default function HeroGlobe() {
                 className="w-full h-full object-cover absolute top-0 left-0 z-0"
             />
             <div className="w-full h-[30svh] absolute bottom-0 left-0 bg-linear-to-t from-zinc-50 via-zinc-50/30 to-transparent z-20" />
+            <div className="w-full h-[50svh] absolute bottom-0 left-0 bg-linear-to-t from-zinc-50 via-zinc-50/10 to-transparent z-20" />
 
             {/* NAVBAR */}
             <Navbar />
@@ -122,18 +140,18 @@ export default function HeroGlobe() {
                     ref={textRef}
                     className="w-[92%] md:w-1/2 min-h-[70svh] flex flex-col items-center md:items-start justify-center text-center md:text-left md:pl-24 gap-7 relative z-30 pt-5 md:pt-0">
                     {/* MICRO BADGE */}
-                    <div className="flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2">
+                    <div className="flex items-center gap-2 rounded-full border border-blue-300 bg-blue-50/20 backdrop-blur-sm px-4 py-1">
                         <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                        <p className="text-xs font-semibold tracking-wide text-blue-500 uppercase">
+                        <p className="text-xs font-semibold tracking-wide text-blue-50 uppercase">
                             Early access opens soon
                         </p>
                     </div>
                     {/* TITLE */}
                     <div className="flex flex-col gap-4">
-                        <h1 className="hero-text text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-zinc-900 text-balance max-w-2xl">
+                        <h1 className="hero-text text-5xl md:text-7xl italic font-black text-zinc-900 text-balance max-w-sm">
                             Stop planning trips <span className="text-blue-500">like a tourist.</span>
                         </h1>
-                        <p className="hero-text text-lg md:text-xl text-zinc-700 leading-relaxed max-w-xl text-pretty">
+                        <p className="hero-text text-md md:text-md text-zinc-700 leading-relaxed max-w-xl text-pretty">
                             Discover curated itineraries built by real travelers and locals who actually know the city.
                             Hidden spots, smooth routes, and unforgettable places, already mapped for you.
                         </p>
@@ -190,9 +208,8 @@ export default function HeroGlobe() {
                         }
 
                         {/* TRUST / MICROCOPY */}
-                        <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 text-sm text-zinc-500">
-                            <p>Be the first to access new cities and creator itineraries.</p>
-                        </div>
+                        <p className="text-sm text-zinc-500/50 ml-1">Be the first to access new cities and itineraries.</p>
+
                     </div>
 
                 </div>
