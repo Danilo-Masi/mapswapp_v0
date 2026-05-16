@@ -1,0 +1,10 @@
+import AuthContainer from "@/components/auth/AuthContainer";
+import LoginForm from "@/components/auth/LoginForm";
+
+export default function Login() {
+  return (
+    <AuthContainer>
+      <LoginForm />
+    </AuthContainer>
+  )
+}

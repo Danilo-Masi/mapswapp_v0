@@ -1,15 +1,11 @@
 // React
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { lazy } from "react";
-import { useAppContext } from "@/context/AppContext";
 // UI Components
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "../ui/input-group";
-import { Spinner } from "../ui/spinner";
-import { toast } from "sonner";
+import { Earth, Sparkles } from "lucide-react";
 const Globe3D = lazy(() => import("@/components/ui/3d-globe"));
-import { Sparkles } from "lucide-react";
 // Components
 import Navbar from "../navbar/Navbar";
 // Images
@@ -18,18 +14,10 @@ import bg_image from "../../assets/bg.webp";
 import { itineraries } from "@/data/itineraries";
 // Gsap
 import gsap from "gsap";
-// Hooks
-import useIsMobile from "@/lib/screenWidth";
-// API
-import { subscribeToWaitlist } from "@/api/subscribe_waitlist";
 
 export default function HeroGlobe() {
     const textRef = useRef(null);
-    const isMobile = useIsMobile();
-
-    const [email, setEmail] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const { setSubscribedSuccessfully } = useAppContext();
+    const navigate = useNavigate();
 
     // Animate text on mount
     useEffect(() => {
@@ -66,52 +54,6 @@ export default function HeroGlobe() {
         pointLightIntensity: 5,
     }), []);
 
-    // Validate email format (basic validation)
-    const isValidEmail = (email: string) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    };
-
-    // Handle waitlist subscription
-    const handleSubscribe = async () => {
-        // Prevent empty email
-        const trimmedEmail = email.trim().toLowerCase();
-        if (trimmedEmail === "") {
-            toast.warning("Email address cannot be empty.");
-            return;
-        }
-        // Validate email format
-        if (!isValidEmail(trimmedEmail)) {
-            toast.warning("Please enter a valid email address.");
-            setEmail("");
-            return;
-        }
-        try {
-            setIsSubmitting(true);
-            // Function call
-            const result = await subscribeToWaitlist(trimmedEmail);
-            // Function error
-            if (!result.ok) {
-                console.error("Failed to subscribe to waitlist:", result.error);
-                return;
-            }
-            // Success
-            setSubscribedSuccessfully(true);
-            // Cleanup
-            setEmail("");
-            // Success message
-            toast.success("Subscribed to waitlist successfully!");
-            // Remove confetti / success state
-            setTimeout(() => {
-                setSubscribedSuccessfully(false);
-            }, 10000);
-        } catch (error) {
-            console.error("Unexpected error in handleSubscribe():", error);
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
     return (
         <section className="w-full h-auto flex flex-col items-center gap-y-10 md:gap-y-6 relative">
 
@@ -136,17 +78,16 @@ export default function HeroGlobe() {
             <div className="w-full h-full min-h-[80svh] flex flex-col md:flex-row items-center">
 
                 {/* Text */}
-                <div
-                    ref={textRef}
+                <div ref={textRef}
                     className="w-[92%] md:w-1/2 min-h-[70svh] flex flex-col items-center md:items-start justify-center text-center md:text-left md:pl-24 gap-7 relative z-30 pt-5 md:pt-0">
-                    {/* MICRO BADGE */}
+                    {/* Micro Badge */}
                     <div className="flex items-center gap-2 rounded-full border border-blue-300 bg-blue-50/20 backdrop-blur-sm px-4 py-1">
                         <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                         <p className="text-xs font-semibold tracking-wide text-blue-50 uppercase">
                             Early access opens soon
                         </p>
                     </div>
-                    {/* TITLE */}
+                    {/* Title */}
                     <div className="flex flex-col gap-4">
                         <h1 className="hero-text text-5xl md:text-7xl italic font-black text-zinc-900 text-balance max-w-sm">
                             Stop planning trips <span className="text-blue-500">like a tourist.</span>
@@ -160,60 +101,25 @@ export default function HeroGlobe() {
                     <h2 className="sr-only">
                         Curated travel itineraries created by locals and real travelers, directly accessible on Google Maps.
                     </h2>
-                    {/* WAITLIST */}
-                    <div className="hero-text w-full max-w-xl flex flex-col gap-3">
-                        {isMobile
-                            ? (
-                                <div className="w-full flex flex-col gap-3">
-                                    <Input
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className="h-14 rounded-2xl border-zinc-200 bg-white px-5 text-base shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500" />
-                                    <Button
-                                        disabled={isSubmitting}
-                                        className="h-14 rounded-2xl bg-black text-base font-semibold text-white hover:bg-zinc-800 transition-all duration-300 shadow-lg shadow-black/10"
-                                        onClick={handleSubscribe}>
-                                        {isSubmitting ? (
-                                            <>Subscribing <Spinner /></>
-                                        ) : (
-                                            <>Get early access <Sparkles className="w-4 h-4 text-white" /></>
-                                        )}
-                                    </Button>
-                                </div>
-                            )
-                            : (
-                                <InputGroup className="h-16 rounded-2xl border border-zinc-200 bg-white/90 backdrop-blur-md shadow-xl overflow-hidden transition-all duration-300 focus-within:border-black focus-within:shadow-2xl">
-                                    <InputGroupInput
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className="h-full border-0 bg-transparent px-6 text-base md:text-lg placeholder:text-zinc-400 focus-visible:ring-0 focus-visible:ring-offset-0" />
-                                    <InputGroupAddon align="inline-end">
-                                        <InputGroupButton
-                                            disabled={isSubmitting}
-                                            onClick={handleSubscribe}
-                                            className="h-12 rounded-xl px-6 mr-2 bg-black text-white font-medium hover:bg-zinc-800 transition-all duration-300">
-                                            {isSubmitting ? (
-                                                <>Subscribing <Spinner /></>
-                                            ) : (
-                                                <>Get early access <Sparkles className="w-4 h-4 text-white" /></>
-                                            )}
-                                        </InputGroupButton>
-                                    </InputGroupAddon>
-                                </InputGroup>
-                            )
-                        }
-
-                        {/* TRUST / MICROCOPY */}
-                        <p className="text-sm text-zinc-500/50 ml-1">Be the first to access new cities and itineraries.</p>
-
+                    {/* Buttons */}
+                    <div className="hero-text w-full flex flex-col md:flex-row gap-3">
+                        <Button
+                            onClick={() => navigate("/registration")}
+                            className="p-6 rounded-2xl bg-blue-500 hover:scale-95 transition-all duration-300 shadow-xl shadow-blue-500/50">
+                            GET EARLY ACCESS
+                            <Sparkles />
+                        </Button>
+                        <Button
+                            onClick={() => navigate("/globe")}
+                            className="p-6 rounded-2xl bg-zinc-800 text-white hover:scale-95 transition-all duration-300">
+                            Your Passport
+                            <Earth />
+                        </Button>
                     </div>
-
+                    {/* Trust / Microcopy */}
+                    <p className="text-sm text-zinc-500/50 ml-1">Be the first to access new cities and itineraries.</p>
                 </div>
-                {/* Globe */}
+                {/* GLOBE */}
                 <div className="w-full md:w-1/2 h-[50svh] md:h-[80svh] relative overflow-hidden">
                     <Globe3D
                         className="h-full w-full size-160 md:size-230 absolute -bottom-72 md:-bottom-96 left-1/2 md:left-32 -translate-x-1/2 md:translate-0"
