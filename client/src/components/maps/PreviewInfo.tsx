@@ -1,10 +1,10 @@
-import { useAppContext } from "@/context/AppContext";
 import { Button } from "../ui/button"
 import { Lock, MapPin, PlaneTakeoff, Star, UtensilsCrossed } from "lucide-react"
+import { useNavigate } from "react-router-dom";
 
 export default function PreviewInfo({ itinerary }: { itinerary: any }) {
 
-    const { setWaitlistDialogOpen } = useAppContext();
+    const navigate = useNavigate();
 
     return (
         <div className="w-full h-[50svh] overflow-y-auto flex flex-col justify-between gap-6 px-1 no-scrollbar">
@@ -70,7 +70,7 @@ export default function PreviewInfo({ itinerary }: { itinerary: any }) {
             {/* CTA */}
             <div className="flex flex-col gap-3">
                 <Button
-                    onClick={() => setWaitlistDialogOpen(true)} // TODO: Implement waitlist subscription
+                    onClick={() => navigate("/login")}
                     className="w-full py-6 text-base font-semibold bg-blue-500 hover:bg-blue-600 shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2">
                     Launching soon
                     <PlaneTakeoff size={16} />

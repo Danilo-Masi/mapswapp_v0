@@ -4,10 +4,15 @@ import { Button } from "../ui/button"
 import { AppleIcon, GoogleIcon } from "./Icons"
 import { Separator } from "../ui/separator"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ChevronRightIcon } from "lucide-react"
+import { signup } from "@/api/auth/signup"
+import { toast } from "sonner"
+import { Spinner } from "../ui/spinner"
 
 export default function RegistrationForm() {
+
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({
         username: "",
@@ -15,7 +20,9 @@ export default function RegistrationForm() {
         password: "",
     });
 
-    const handleCreateAccount = () => {
+    const [isLoading, setLoading] = useState(false);
+
+    const handleCreateAccount = async () => {
         // Reset errors
         setErrors({ username: "", email: "", password: "" });
 
@@ -45,9 +52,26 @@ export default function RegistrationForm() {
             hasError = true;
         }
 
-        if (!hasError) {
-            // Submit form (replace with your submission logic)
-            console.log("Form submitted:", { username, email, password });
+        try {
+
+            if (!hasError) {
+                setLoading(true);
+
+                await signup({
+                    name: username,
+                    email,
+                    password,
+                })
+
+                toast.success("Account created successfully!");
+                navigate("/globe");
+            }
+
+        } catch (error) {
+            console.error("Signup error:", error);
+            toast.error("Failed to create account.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -114,9 +138,12 @@ export default function RegistrationForm() {
             </FieldSet>
             <Button
                 onClick={handleCreateAccount}
+                disabled={isLoading}
                 className="w-full p-6 hover:scale-95 transition-all duration-300">
-                Create account
-                <ChevronRightIcon className="ml-2" />
+                {isLoading
+                    ? (<span className="flex items-center justify-center">Creating account...<Spinner className="ml-2" /></span>)
+                    : (<span className="flex items-center justify-center">Create account <ChevronRightIcon className="ml-2" /></span>)
+                }
             </Button>
             <p className="text-md md:text-xs text-balance text-zinc-500">Already have an account? <Link to="/login" className="text-blue-500">Log in</Link></p>
         </div>

@@ -11,12 +11,8 @@ import PreviewCard from "@/components/maps/PreviewCard";
 import PreviewCardMobile from "@/components/maps/PreviewCardMobile";
 import { useEffect } from "react";
 import { scrollToElement } from "@/lib/gsap";
-import WaitlistDialog from "@/components/other/WailtistDialog";
-import { useAppContext } from "@/context/AppContext";
-import Confetti from 'react-confetti-boom';
 
 export default function Home() {
-    const { subscribedSuccessfully } = useAppContext();
     const isMobile = useIsMobile();
 
     useEffect(() => {
@@ -38,25 +34,6 @@ export default function Home() {
                 ? <PreviewCardMobile />
                 : <PreviewCard />
             }
-            <WaitlistDialog />
-            {/* Waitltist */}
-            {subscribedSuccessfully && (
-                <Confetti
-                    mode="fall"
-                    particleCount={120}
-                    shapeSize={12}
-                    fadeOutHeight={0.9}
-                    colors={[
-                        "#2563eb",
-                        "#60a5fa",
-                        "#93c5fd",
-                        "#dbeafe",
-                        "#ffffff",
-                        "#18181b"
-                    ]}
-                />
-            )}
-
         </div>
     )
 }

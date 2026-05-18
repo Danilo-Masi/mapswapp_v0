@@ -1,18 +1,19 @@
 import Fastify from "fastify";
 import 'dotenv/config';
-// Cors plugin
-import fastifyCors from "@fastify/cors";
+// Plugins
+import cookiesPlugin from "./plugin/cookies.mjs";
+import corsPlugin from "./plugin/cors.mjs";
 // Routes
-import waitlistRoutes from "./routes/waitlist/waitlist.mjs";
+import registerRoute from "./routes/auth/register.route.mjs";
 
 const fastify = Fastify({ logger: true });
 
-fastify.register(fastifyCors, {
-    origin: ["http://localhost:5173"],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-});
+// Register plugins
+fastify.register(cookiesPlugin);
+fastify.register(corsPlugin);
 
-fastify.register(waitlistRoutes, { prefix: "/waitlist" });
+// Register routes
+fastify.register(registerRoute, { prefix: "/auth" });
 
 try {
     await fastify.listen({ port: 3000 });
