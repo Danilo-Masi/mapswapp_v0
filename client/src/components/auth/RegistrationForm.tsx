@@ -1,7 +1,6 @@
 import { Field, FieldError, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button"
-import { AppleIcon, GoogleIcon } from "./Icons"
 import { Separator } from "../ui/separator"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
@@ -9,6 +8,8 @@ import { ChevronRightIcon } from "lucide-react"
 import { signup } from "@/api/auth/signup"
 import { toast } from "sonner"
 import { Spinner } from "../ui/spinner"
+import { getCurrentUser } from "@/api/auth/me"
+import { useAuth } from "@/context/AuthContext"
 
 export default function RegistrationForm() {
 
@@ -19,6 +20,8 @@ export default function RegistrationForm() {
         email: "",
         password: "",
     });
+
+    const auth = useAuth();
 
     const [isLoading, setLoading] = useState(false);
 
@@ -61,10 +64,14 @@ export default function RegistrationForm() {
                     name: username,
                     email,
                     password,
-                })
+                });
+
+                const me: any = await getCurrentUser();
+
+                auth?.setUser?.(me.user);
 
                 toast.success("Account created successfully!");
-                navigate("/globe");
+                navigate("/globe", { replace: true });
             }
 
         } catch (error) {
@@ -81,21 +88,6 @@ export default function RegistrationForm() {
             <div className="w-full flex flex-col gap-3">
                 <h1 className="text-2xl md:text-3xl font-bold text-zinc-900">Create an account</h1>
                 <p className="text-md md:text-xs text-clip text-zinc-400">Get early access to mapswapp, early updates and start to crate your passport from now</p>
-            </div>
-            {/* Social Auth */}
-            <div className="w-full flex flex-row justify-center gap-3">
-                <Button
-                    variant="outline"
-                    className="w-1/2 py-6">
-                    <GoogleIcon />
-                    Google
-                </Button>
-                <Button
-                    variant="outline"
-                    className="w-1/2 py-6">
-                    <AppleIcon />
-                    Apple
-                </Button>
             </div>
             <Separator />
             {/* Form */}

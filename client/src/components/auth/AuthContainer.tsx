@@ -32,23 +32,24 @@ export default function AuthContainer({ children }: { children: ReactNode }) {
                 <div className="w-1/2 h-full flex flex-col p-3 gap-3 overflow-hidden relative">
                     {/* Blocco 1 */}
                     <div className="flex w-max h-1/3 gap-6 animate-scroll">
-                        {duplicated.map((itinerary) => (
-                            <AuthCard key={itinerary.id} cover={itinerary.cover} city={itinerary.city} />
+                        {duplicated.map((itinerary, i) => (
+                            <AuthCard key={i} cover={itinerary.cover} city={itinerary.city} />
                         ))}
                     </div>
                     {/* Blocco 2 */}
                     <div className="flex w-max h-1/3 gap-6 animate-scroll-reverse">
-                        {duplicated2.map((itinerary) => (
-                            <AuthCard key={itinerary.id} cover={itinerary.cover} city={itinerary.city} />
+                        {duplicated2.map((itinerary, i) => (
+                            <AuthCard key={i} cover={itinerary.cover} city={itinerary.city} />
                         ))}
                     </div>
                     {/* Blocco 3 */}
                     <div className="flex w-max h-1/3 gap-6 animate-scroll">
-                        {duplicated.map((itinerary) => (
-                            <AuthCard key={itinerary.id} cover={itinerary.cover2} city={itinerary.city} />
+                        {duplicated.map((itinerary, i) => (
+                            <AuthCard key={i} cover={itinerary.cover2} city={itinerary.city} />
                         ))}
                     </div>
                     {/* Layer effetto */}
+                    <div className="w-[20svh] h-full absolute top-0 right-0 bg-linear-to-l from-zinc-100 via-zinc-100/80 to-transparent" />
                     <div className="w-[20svh] h-full absolute top-0 right-0 bg-linear-to-l from-zinc-100 via-zinc-100/50 to-transparent" />
                 </div>
 

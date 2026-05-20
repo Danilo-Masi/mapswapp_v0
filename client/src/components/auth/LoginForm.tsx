@@ -1,19 +1,28 @@
 import { Field, FieldError, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button"
-import { AppleIcon, GoogleIcon } from "./Icons"
 import { Separator } from "../ui/separator"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ChevronRightIcon } from "lucide-react"
+import { signin } from "@/api/auth/singin"
+import { toast } from "sonner"
+import { Spinner } from "../ui/spinner"
+import { getCurrentUser } from "@/api/auth/me"
+import { useAuth } from "@/context/AuthContext"
 
 export default function LoginForm() {
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({
         email: "",
         password: "",
     });
 
-    const handleCreateAccount = () => {
+    const [isLoading, setLoading] = useState(false);
+
+    const auth = useAuth();
+
+    const handleSignin = async () => {
         // Reset errors
         setErrors({ email: "", password: "" });
 
@@ -38,9 +47,29 @@ export default function LoginForm() {
             hasError = true;
         }
 
-        if (!hasError) {
-            // Submit form (replace with your submission logic)
-            console.log("Form submitted:", { email, password });
+        try {
+
+            if (!hasError) {
+                setLoading(true);
+
+                await signin({
+                    email,
+                    password,
+                });
+
+                const me: any = await getCurrentUser();
+
+                auth?.setUser?.(me.user);
+
+                toast.success("Logged in successfully!");
+                navigate("/globe", { replace: true });
+            }
+
+        } catch (error) {
+            console.error("Signin error:", error);
+            toast.error("Failed to sign in. Try again later.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -50,21 +79,6 @@ export default function LoginForm() {
             <div className="w-full flex flex-col gap-3">
                 <h1 className="text-2xl md:text-3xl font-bold text-zinc-900">Log in to your account</h1>
                 <p className="text-md md:text-xs text-clip text-zinc-400">Get early access to mapswapp, early updates and start to crate your passport from now</p>
-            </div>
-            {/* Social Auth */}
-            <div className="w-full flex flex-row justify-center gap-3">
-                <Button
-                    variant="outline"
-                    className="w-1/2 py-6">
-                    <GoogleIcon />
-                    Google
-                </Button>
-                <Button
-                    variant="outline"
-                    className="w-1/2 py-6">
-                    <AppleIcon />
-                    Apple
-                </Button>
             </div>
             <Separator />
             {/* Form */}
@@ -95,10 +109,13 @@ export default function LoginForm() {
                 </FieldGroup>
             </FieldSet>
             <Button
-                onClick={handleCreateAccount}
+                onClick={handleSignin}
+                disabled={isLoading}
                 className="w-full p-6 hover:scale-95 transition-all duration-300">
-                Log in
-                <ChevronRightIcon className="ml-2" />
+                {isLoading
+                    ? (<span className="flex items-center justify-center">Signing in...<Spinner className="ml-2" /></span>)
+                    : (<span className="flex items-center justify-center">Sign in <ChevronRightIcon className="ml-2" /></span>)
+                }
             </Button>
             <p className="text-md md:text-xs text-balance text-zinc-500">Don't have an account? <Link to="/registration" className="text-blue-500">Create account</Link></p>
         </div>
