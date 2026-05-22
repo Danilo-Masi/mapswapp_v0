@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Globe from "./pages/Globe";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import TermsService from "./pages/TermsService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import GuestRoute from "./routes/GuestRoute";
+import Passport from "./pages/Passport";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
           element={<Home />} />
         <Route
           path="/globe"
-          element={<ProtectedRoute><Globe /></ProtectedRoute>} />
+          element={<ProtectedRoute><Passport /></ProtectedRoute>} />
         <Route
           path="/login"
           element={<GuestRoute><Login /></GuestRoute>} />
