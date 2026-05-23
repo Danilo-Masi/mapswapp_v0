@@ -1,6 +1,6 @@
 import { ChevronRight, Flame, Sparkles, MapPin, Vault, Flag } from "lucide-react";
-import { Button } from "../ui/button";
 import { useAppContext } from "@/context/AppContext";
+import { Button } from "@/components/ui/button";
 
 interface ItineraryCardInterface {
     id: string;
@@ -54,7 +54,7 @@ function getBadge(badges?: string[]) {
     return null;
 }
 
-export default function ItineraryCard({ id, image, title, price, country, city, duration, shortDescription, spots, badges, vibe }: ItineraryCardInterface) {
+export default function ItineraryCard({ id, image, title, country, city, duration, shortDescription, spots, badges, vibe }: ItineraryCardInterface) {
     const { setPreviewOpen, setSelectedItinerary } = useAppContext();
 
     const handlePreview = () => {

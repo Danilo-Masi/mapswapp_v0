@@ -1,12 +1,12 @@
 import PhoneMockup from "./PhoneMockup";
 import { useState, type Dispatch, type SetStateAction } from "react";
-import { Switch } from "../ui/switch";
 // Data
 import { days } from "@/data/mapData";
 // Images
-import newyork_card from "../../assets/itineraries/newyork_card.webp";
-import lisbon_card from "../../assets/itineraries/lisbon_card.webp";
-import london_card from "../../assets/itineraries/london_card.webp";
+import newyork_card from "../../../assets/itineraries/newyork_card.webp";
+import lisbon_card from "../../../assets/itineraries/lisbon_card.webp";
+import london_card from "../../../assets/itineraries/london_card.webp";
+import { Switch } from "@/components/ui/switch";
 
 interface TextSectionProps {
     span: string;

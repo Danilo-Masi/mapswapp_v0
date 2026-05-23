@@ -1,16 +1,19 @@
 import useIsMobile from "@/lib/screenWidth";
 // Components
-import HeroGlobe from "@/components/hero/HeroGlobe";
-import InfiniteCards from "@/components/moving_cards/infiniteCards";
-import Features from "../components/features/Features";
-import Maps from "../components/maps/Maps";
-import Faqs from "../components/faqs/Faqs";
-import Footer from "../components/footer/Footer";
+import HeroGlobe from "@/components/home/hero/HeroGlobe";
+
+
+import Faqs from "../components/home/faqs/Faqs";
+import Footer from "../components/home/footer/Footer";
 // Dialogs
-import PreviewCard from "@/components/maps/PreviewCard";
-import PreviewCardMobile from "@/components/maps/PreviewCardMobile";
+
 import { useEffect } from "react";
 import { scrollToElement } from "@/lib/gsap";
+import Maps from "@/components/home/maps/Maps";
+import PreviewCardMobile from "@/components/home/maps/PreviewCardMobile";
+import PreviewCard from "@/components/home/maps/PreviewCard";
+import InfiniteCards from "@/components/home/moving_cards/infiniteCards";
+import Features from "@/components/home/features/Features";
 
 export default function Home() {
     const isMobile = useIsMobile();

@@ -1,13 +1,9 @@
-import ChangeButton from "@/components/passport/ChangeButton";
-import MapLayer from "@/components/passport/MapLayer";
-import StatusDialog from "@/components/passport/status/StatusDialog";
+import PassportMap from "@/components/passport/map/PassportMap";
 
 export default function Passport() {
     return (
         <div className="h-svh w-full relative">
-            <ChangeButton />
-            <MapLayer />
-            <StatusDialog />
+            <PassportMap />
         </div>
     );
 }

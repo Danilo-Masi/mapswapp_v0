@@ -1,8 +1,9 @@
 import { useAppContext } from "@/context/AppContext";
-import { Drawer, DrawerContent } from "../ui/drawer";
+
 import { itineraries } from "@/data/itineraries";
 import PreviewMap from "./PreviewMap";
 import PreviewInfo from "./PreviewInfo";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 
 export default function PreviewCardMobile() {
     const { isPreviewOpen, setPreviewOpen, selectedItinerary } = useAppContext();

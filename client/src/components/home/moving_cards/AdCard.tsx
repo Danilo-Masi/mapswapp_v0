@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react"
-import { Button } from "../ui/button"
 import { useAppContext } from "@/context/AppContext";
 
 type AdCardProps = {

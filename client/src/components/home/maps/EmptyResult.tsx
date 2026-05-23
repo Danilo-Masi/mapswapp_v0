@@ -1,6 +1,6 @@
 import { RefreshCw } from "lucide-react"
-import { Button } from "../ui/button"
 import { useAppContext } from "@/context/AppContext";
+import { Button } from "@/components/ui/button";
 
 export function EmptyResult() {
     const { setDestination, setDuration, setPeriod, setBadge, setFilters } = useAppContext();

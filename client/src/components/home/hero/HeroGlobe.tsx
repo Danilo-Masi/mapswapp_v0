@@ -3,17 +3,18 @@ import { useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { lazy } from "react";
 // UI Components
-import { Button } from "../ui/button";
+
 import { Earth, Sparkles } from "lucide-react";
 const Globe3D = lazy(() => import("@/components/ui/3d-globe"));
 // Components
-import Navbar from "../navbar/Navbar";
 // Images
-import bg_image from "../../assets/bg.webp";
+import bg_image from "../../../assets/bg.webp";
 // Data
 import { itineraries } from "@/data/itineraries";
 // Gsap
 import gsap from "gsap";
+import { Button } from "@/components/ui/button";
+import Navbar from "../navbar/Navbar";
 
 export default function HeroGlobe() {
     const textRef = useRef(null);

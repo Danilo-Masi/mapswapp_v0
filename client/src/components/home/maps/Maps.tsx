@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar";
 import SearchBarMobile from "./SearchBarMobile";
 import ItineraryCard from "./ItineraryCard";
-import { itineraries } from "../../data/itineraries";
+import { itineraries } from "../../../data/itineraries";
 import { useState } from "react";
 import { SkeletonCard } from "./SkeletonCard";
 import { EmptyResult } from "./EmptyResult";
