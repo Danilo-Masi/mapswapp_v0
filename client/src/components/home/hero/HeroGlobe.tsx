@@ -117,8 +117,6 @@ export default function HeroGlobe() {
                             <Earth />
                         </Button>
                     </div>
-                    {/* Trust / Microcopy */}
-                    <p className="text-sm text-zinc-500/50 ml-1">Be the first to access new cities and itineraries.</p>
                 </div>
                 {/* GLOBE */}
                 <div className="w-full md:w-1/2 h-[50svh] md:h-[80svh] relative overflow-hidden">

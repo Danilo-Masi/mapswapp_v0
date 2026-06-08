@@ -22,6 +22,9 @@ export default function AdCard({ id, spots, city, description, cover }: AdCardPr
             {/* IMAGE */}
             <img
                 src={cover}
+                alt={`${city} cover`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-110" />
 
             {/* DARK OVERLAY */}
