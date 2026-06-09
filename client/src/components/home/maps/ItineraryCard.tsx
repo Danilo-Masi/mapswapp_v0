@@ -1,4 +1,4 @@
-import { ChevronRight, Flame, Sparkles, MapPin, Vault, Flag } from "lucide-react";
+import { ChevronRight, MapPin } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { Button } from "@/components/ui/button";
 
@@ -6,55 +6,15 @@ interface ItineraryCardInterface {
     id: string;
     image: string;
     title: string;
-    price: number;
     country: string;
     city: string;
     duration: number;
     shortDescription: string;
     spots: number;
-    badges?: ("trending" | "new" | "best_value" | "hidden_gems")[];
-    vibe?: ("food" | "nature" | "nightlife" | "culture" | "relax")[];
 }
 
-function getBadge(badges?: string[]) {
-    if (!badges) return null;
 
-    if (badges.includes("trending")) {
-        return (
-            <div className="flex items-center gap-1 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                <Flame size={12} fill="white" /> Trending
-            </div>
-        );
-    }
-
-    if (badges.includes("new")) {
-        return (
-            <div className="flex items-center gap-1 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                <Sparkles size={12} fill="white" /> New
-            </div>
-        );
-    }
-
-    if (badges.includes("best_value")) {
-        return (
-            <div className="flex items-center gap-1 bg-amber-300 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-                <Flag size={12} fill="current" />Best value
-            </div>
-        );
-    }
-
-    if (badges.includes("hidden_gems")) {
-        return (
-            <div className="flex items-center gap-1 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                <Vault size={12} /> Hidden gems
-            </div>
-        );
-    }
-
-    return null;
-}
-
-export default function ItineraryCard({ id, image, title, country, city, duration, shortDescription, spots, badges, vibe }: ItineraryCardInterface) {
+export default function ItineraryCard({ id, image, title, country, city, duration, shortDescription, spots }: ItineraryCardInterface) {
     const { setPreviewOpen, setSelectedItinerary } = useAppContext();
 
     const handlePreview = () => {
@@ -76,11 +36,6 @@ export default function ItineraryCard({ id, image, title, country, city, duratio
             {/* OVERLAY */}
             <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
 
-            {/* BADGE */}
-            <div className="absolute top-5 left-5 z-20">
-                {getBadge(badges)}
-            </div>
-
             {/* CONTENT */}
             <section className="absolute bottom-0 left-0 w-full p-5 z-20 flex flex-col gap-3">
 
@@ -101,19 +56,6 @@ export default function ItineraryCard({ id, image, title, country, city, duratio
                     <span>•</span>
                     <span>🗓 {duration} days</span>
                 </div>
-
-                {/* VIBE TAGS */}
-                {vibe && (
-                    <div className="flex flex-wrap gap-2">
-                        {vibe.slice(0, 3).map((v, i) => (
-                            <span
-                                key={i}
-                                className="text-[10px] px-2 py-1 rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm">
-                                {v}
-                            </span>
-                        ))}
-                    </div>
-                )}
 
                 {/* DESCRIPTION */}
                 <p className="text-sm text-white/80 line-clamp-2">

@@ -3,7 +3,6 @@ import { useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { lazy } from "react";
 // UI Components
-
 import { Earth, Sparkles } from "lucide-react";
 const Globe3D = lazy(() => import("@/components/ui/3d-globe"));
 // Components

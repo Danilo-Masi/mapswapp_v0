@@ -6,17 +6,9 @@ type AppContextType = {
     setPreviewOpen: Dispatch<SetStateAction<boolean>>;
     selectedItinerary: string;
     setSelectedItinerary: Dispatch<SetStateAction<string>>;
-    // Maps - filters
-    destination: string;
-    setDestination: Dispatch<SetStateAction<string>>;
-    duration: string;
-    setDuration: Dispatch<SetStateAction<string>>;
-    period: string;
-    setPeriod: Dispatch<SetStateAction<string>>;
-    badge: string;
-    setBadge: Dispatch<SetStateAction<string>>;
-    filters: { destination: string, duration: string, period: string, badge: string };
-    setFilters: Dispatch<SetStateAction<{ destination: string, duration: string, period: string, badge: string }>>;
+    // Maps - filter bar
+    selectedFilter: string;
+    setSelectedFilter: Dispatch<SetStateAction<string>>;
     // Globe
     isStateDialogOpen: boolean;
     setStateDialogOpen: Dispatch<SetStateAction<boolean>>;
@@ -37,17 +29,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     // Maps - preview
     const [isPreviewOpen, setPreviewOpen] = useState(false);
     const [selectedItinerary, setSelectedItinerary] = useState("");
-    // Maps - filters
-    const [destination, setDestination] = useState("")
-    const [duration, setDuration] = useState("")
-    const [period, setPeriod] = useState("")
-    const [badge, setBadge] = useState("best_value")
-    const [filters, setFilters] = useState({
-        destination: "",
-        duration: "",
-        period: "",
-        badge: "best_value"
-    });
+    // Maps - filter bar
+    const [selectedFilter, setSelectedFilter] = useState("");
     // Globe
     const [isStateDialogOpen, setStateDialogOpen] = useState(false);
     const [isAnalyticsDialogOpen, setAnalyticsDialogOpen] = useState(false);
@@ -63,17 +46,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
                 setSelectedItinerary,
                 isPreviewOpen,
                 setPreviewOpen,
-                // Maps - filters
-                destination,
-                setDestination,
-                duration,
-                setDuration,
-                period,
-                setPeriod,
-                badge,
-                setBadge,
-                filters,
-                setFilters,
+                // Maps - filter bar
+                selectedFilter,
+                setSelectedFilter,
                 // Globe
                 isStateDialogOpen,
                 setStateDialogOpen,

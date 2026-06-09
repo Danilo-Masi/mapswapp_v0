@@ -23,8 +23,8 @@ export const itineraries: ItineraryType[] = [
         city: "London",
         country: "United Kingdom",
         continent: "Europe",
-        cover: "/cover/london_card.webp", // TO UPDATE
-        cover2: "/cover/london_card_2.webp", // TO UPDATE
+        cover: "/cover/london.webp", // TO UPDATE
+        cover2: "/cover/london_2.webp", // TO UPDATE
         duration: 3,
         spots: 21,
         position: { lat: 38.7223, lng: -9.1393 },
@@ -42,8 +42,8 @@ export const itineraries: ItineraryType[] = [
         city: "London",
         country: "United Kingdom",
         continent: "Europe",
-        cover: "/cover/london_card.webp", // TO UPDATE
-        cover2: "/cover/london_card_2.webp", // TO UPDATE
+        cover: "/cover/london.webp", // TO UPDATE
+        cover2: "/cover/london_2.webp", // TO UPDATE
         duration: 3,
         spots: 21,
         position: { lat: 38.7223, lng: -9.1393 },
@@ -62,8 +62,8 @@ export const itineraries: ItineraryType[] = [
         city: "Paris",
         country: "France",
         continent: "Europe",
-        cover: "/cover/paris_card.webp", // TO UPDATE
-        cover2: "/cover/paris_card_2.webp", // TO UPDATE
+        cover: "/cover/paris.webp", // TO UPDATE
+        cover2: "/cover/paris_2.webp", // TO UPDATE
         duration: 4,
         spots: 40,
         position: { lat: 48.8566, lng: 2.3522 },
@@ -81,8 +81,8 @@ export const itineraries: ItineraryType[] = [
         city: "Paris",
         country: "France",
         continent: "Europe",
-        cover: "/cover/paris_card.webp", // TO UPDATE
-        cover2: "/cover/paris_card_2.webp", // TO UPDATE
+        cover: "/cover/paris.webp", // TO UPDATE
+        cover2: "/cover/paris_2.webp", // TO UPDATE
         duration: 4,
         spots: 40,
         position: { lat: 48.8566, lng: 2.3522 },
@@ -101,8 +101,8 @@ export const itineraries: ItineraryType[] = [
         city: "Rome",
         country: "Italy",
         continent: "Europe",
-        cover: "/cover/rome_card.webp", // TO UPDATE
-        cover2: "/cover/rome_card_2.webp", // TO UPDATE
+        cover: "/cover/rome.webp", // TO UPDATE
+        cover2: "/cover/rome_2.webp", // TO UPDATE
         duration: 2,
         spots: 22,
         position: { lat: 45.4408, lng: 12.3155 },
@@ -120,8 +120,8 @@ export const itineraries: ItineraryType[] = [
         city: "Rome",
         country: "Italy",
         continent: "Europe",
-        cover: "/cover/rome_card.webp", // TO UPDATE
-        cover2: "/cover/rome_card_2.webp", // TO UPDATE
+        cover: "/cover/rome.webp", // TO UPDATE
+        cover2: "/cover/rome_2.webp", // TO UPDATE
         duration: 2,
         spots: 22,
         position: { lat: 45.4408, lng: 12.3155 },
@@ -140,8 +140,8 @@ export const itineraries: ItineraryType[] = [
         city: "Lisbon",
         country: "Portugal",
         continent: "Europe",
-        cover: "/cover/lisbon_card.webp", // TO UPDATE
-        cover2: "/cover/lisbon_card_2.webp", // TO UPDATE
+        cover: "/cover/lisbon.webp", // TO UPDATE
+        cover2: "/cover/lisbon_2.webp", // TO UPDATE
         duration: 3,
         spots: 21,
         position: { lat: 38.7223, lng: -9.1393 },
@@ -159,8 +159,8 @@ export const itineraries: ItineraryType[] = [
         city: "Lisbon",
         country: "Portugal",
         continent: "Europe",
-        cover: "/cover/lisbon_card.webp", // TO UPDATE
-        cover2: "/cover/lisbon_card_2.webp", // TO UPDATE
+        cover: "/cover/lisbon.webp", // TO UPDATE
+        cover2: "/cover/lisbon_2.webp", // TO UPDATE
         duration: 3,
         spots: 21,
         position: { lat: 38.7223, lng: -9.1393 },
@@ -179,8 +179,8 @@ export const itineraries: ItineraryType[] = [
         city: "Budapest",
         country: "Hungary",
         continent: "Europe",
-        cover: "/cover/budapest_card.webp", // TO UPDATE
-        cover2: "/cover/budapest_card_2.webp", // TO UPDATE
+        cover: "/cover/budapest.webp", // TO UPDATE
+        cover2: "/cover/budapest_2.webp", // TO UPDATE
         duration: 3,
         spots: 33,
         position: { lat: 47.4979, lng: 19.0402 },
@@ -198,8 +198,8 @@ export const itineraries: ItineraryType[] = [
         city: "Budapest",
         country: "Hungary",
         continent: "Europe",
-        cover: "/cover/budapest_card.webp", // TO UPDATE
-        cover2: "/cover/budapest_card_2.webp", // TO UPDATE
+        cover: "/cover/budapest.webp", // TO UPDATE
+        cover2: "/cover/budapest_2.webp", // TO UPDATE
         duration: 3,
         spots: 33,
         position: { lat: 47.4979, lng: 19.0402 },
@@ -218,8 +218,8 @@ export const itineraries: ItineraryType[] = [
         city: "Amsterdam",
         country: "Netherlands",
         continent: "Europe",
-        cover: "/cover/amsterdam_card.webp", // TO UPDATE
-        cover2: "/cover/amsterdam_card_2.webp", // TO UPDATE
+        cover: "/cover/amsterdam.webp", // TO UPDATE
+        cover2: "/cover/amsterdam_2.webp", // TO UPDATE
         duration: 3,
         spots: 32,
         position: { lat: 52.3676, lng: 4.9041 },
@@ -237,8 +237,8 @@ export const itineraries: ItineraryType[] = [
         city: "Amsterdam",
         country: "Netherlands",
         continent: "Europe",
-        cover: "/cover/amsterdam_card.webp", // TO UPDATE
-        cover2: "/cover/amsterdam_card_2.webp", // TO UPDATE
+        cover: "/cover/amsterdam.webp", // TO UPDATE
+        cover2: "/cover/amsterdam_2.webp", // TO UPDATE
         duration: 3,
         spots: 32,
         position: { lat: 52.3676, lng: 4.9041 },
@@ -257,7 +257,7 @@ export const itineraries: ItineraryType[] = [
         city: "Vienna",
         country: "Austria",
         continent: "Europe",
-        cover: "/cover/vienna_2.webp", // TO UPDATE
+        cover: "/cover/vienna.webp", // TO UPDATE
         cover2: "/cover/vienna_2.webp", // TO UPDATE
         duration: 3,
         spots: 32,

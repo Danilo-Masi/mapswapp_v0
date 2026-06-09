@@ -2,8 +2,8 @@ import { itineraries } from "@/data/itineraries"
 import { useMemo } from "react"
 import AdCard from "./AdCard";
 
-const items = itineraries.filter((i) => i.badge === "trending");
-const items2 = itineraries.filter((i) => i.badge === "best_value");
+const items = itineraries.filter((i) => i.continent.toLowerCase() === "europe");
+const items2 = itineraries.filter((i) => i.continent.toLowerCase() === "europe");
 
 export default function InfiniteCards() {
 
