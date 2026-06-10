@@ -157,11 +157,11 @@
 }
 
 .animate-scroll-reverse {
-  animation: scroll 40s linear infinite reverse;
+  animation: scroll 80s linear infinite reverse;
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 90s linear infinite;
 }
 
 .animate-scroll:hover {

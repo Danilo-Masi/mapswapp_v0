@@ -30,7 +30,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     const [isPreviewOpen, setPreviewOpen] = useState(false);
     const [selectedItinerary, setSelectedItinerary] = useState("");
     // Maps - filter bar
-    const [selectedFilter, setSelectedFilter] = useState("");
+    const [selectedFilter, setSelectedFilter] = useState("EUROPE");
     // Globe
     const [isStateDialogOpen, setStateDialogOpen] = useState(false);
     const [isAnalyticsDialogOpen, setAnalyticsDialogOpen] = useState(false);

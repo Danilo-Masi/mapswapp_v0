@@ -4,7 +4,6 @@ import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import TermsService from "./pages/TermsService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import ProtectedRoute from "./routes/ProtectedRoute";
 import GuestRoute from "./routes/GuestRoute";
 import Passport from "./pages/Passport";
 
@@ -17,7 +16,7 @@ export default function App() {
           element={<Home />} />
         <Route
           path="/globe"
-          element={<ProtectedRoute><Passport /></ProtectedRoute>} />
+          element={<Passport />} />
         <Route
           path="/login"
           element={<GuestRoute><Login /></GuestRoute>} />

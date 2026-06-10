@@ -3,9 +3,9 @@ import { useState, type Dispatch, type SetStateAction } from "react";
 // Data
 import { days } from "@/data/mapData";
 // Images
-import newyork_card from "../../../../public/cover/newyork.webp";
-import lisbon_card from "../../../../public/cover/lisbon.webp";
-import london_card from "../../../../public/cover/london.webp";
+import newyork_card from "../../../assets/features/newyork.webp";
+import lisbon_card from "../../../assets/features/lisbon.webp";
+import london_card from "../../../assets/features/london.webp";
 import { Switch } from "@/components/ui/switch";
 
 interface TextSectionProps {

@@ -2,8 +2,9 @@ import { itineraries } from "@/data/itineraries";
 import useIsMobile from "@/lib/screenWidth";
 import { useMemo, type ReactNode } from "react";
 
-const items = itineraries.filter((i) => i.badge === "trending");
-const items2 = itineraries.filter((i) => i.badge === "best_value");
+const items = itineraries.filter((i) => i.continent === "ASIA" || i.continent === "AMERICAS");
+const items2 = itineraries.filter((i) => i.continent === "OCEANIA" || i.continent === "AFRICA");
+const items3 = itineraries.filter((i) => i.continent === "EUROPE");
 
 function AuthCard({ cover, city }: { cover: string; city: string }) {
     return (
@@ -25,6 +26,7 @@ export default function AuthContainer({ children }: { children: ReactNode }) {
 
     const duplicated = useMemo(() => [...items, ...items], [items]);
     const duplicated2 = useMemo(() => [...items2, ...items2], [items2]);
+    const duplicated3 = useMemo(() => [...items3, ...items3], [items3]);
 
     return (
         <div className="w-full h-auto min-h-svh md:h-svh flex bg-zinc-100">
@@ -44,8 +46,8 @@ export default function AuthContainer({ children }: { children: ReactNode }) {
                     </div>
                     {/* Blocco 3 */}
                     <div className="flex w-max h-1/3 gap-6 animate-scroll">
-                        {duplicated.map((itinerary, i) => (
-                            <AuthCard key={i} cover={itinerary.cover2} city={itinerary.city} />
+                        {duplicated3.map((itinerary, i) => (
+                            <AuthCard key={i} cover={itinerary.cover} city={itinerary.city} />
                         ))}
                     </div>
                     {/* Layer effetto */}
