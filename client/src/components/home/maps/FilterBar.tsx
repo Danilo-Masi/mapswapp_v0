@@ -2,7 +2,7 @@ import { useAppContext } from "@/context/AppContext";
 import ContinentCard from "./ContinentCard";
 
 type Continent = {
-    key: "EUROPE" | "ASIA" | "AMERICAS" | "AFRICA" | "OCEANIA";
+    key: "EUROPE" | "ASIA" | "NORTH-AMERICA" | "SOUTH-AMERICA" | "AFRICA" | "OCEANIA";
     label: string;
     image: string;
 };
@@ -11,27 +11,32 @@ const continents: Continent[] = [
     {
         key: "EUROPE",
         label: "Europe",
-        image: "/continents/europe.svg",
+        image: "/continents/Europe.svg",
     },
     {
         key: "ASIA",
         label: "Asia",
-        image: "/continents/asia.svg",
+        image: "/continents/Asia.svg",
     },
     {
-        key: "AMERICAS",
-        label: "Americas",
-        image: "/continents/americas.svg",
+        key: "NORTH-AMERICA",
+        label: "North America",
+        image: "/continents/North-America.svg",
+    },
+    {
+        key: "SOUTH-AMERICA",
+        label: "South America",
+        image: "/continents/South-America.svg",
     },
     {
         key: "AFRICA",
         label: "Africa",
-        image: "/continents/africa.svg",
+        image: "/continents/Africa.svg",
     },
     {
         key: "OCEANIA",
         label: "Oceania",
-        image: "/continents/oceania.svg",
+        image: "/continents/Oceania.svg",
     },
 ];
 
