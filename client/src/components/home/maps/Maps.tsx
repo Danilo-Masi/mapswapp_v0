@@ -7,14 +7,17 @@ export default function Maps() {
     const { selectedFilter } = useAppContext();
 
     const filteredItineraries = itineraries.filter(
-        (itinerary) => itinerary.continent === selectedFilter
+
+        itinerary => itinerary.continent === selectedFilter
+
     );
 
     return (
         <section className="w-[95%] md:w-5/6 h-min flex flex-col items-center gap-10" id="maps">
             {/* Filter Bar */}
             <FilterBar />
-            {/* Skeleton or Card */}
+            {/* Card */}
+            {/* 
             <div className="w-full h-min flex flex-wrap justify-start items-start gap-8">
                 {filteredItineraries.map((itinerary: any) => (
                     <ItineraryCard
@@ -30,6 +33,24 @@ export default function Maps() {
                     />
                 ))}
             </div>
+            */}
+            <h1>{selectedFilter}</h1>
+
+            <p>
+
+                Found: {filteredItineraries.length}
+
+            </p>
+
+            {filteredItineraries.map(itinerary => (
+
+                <div key={itinerary.id}>
+
+                    {itinerary.title} - {itinerary.continent}
+
+                </div>
+
+            ))}
         </section>
     )
 }
