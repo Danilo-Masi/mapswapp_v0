@@ -1,4 +1,3 @@
-import ItineraryCard from "./ItineraryCard";
 import { itineraries } from "../../../data/itineraries";
 import FilterBar from "./FilterBar";
 import { useAppContext } from "@/context/AppContext";

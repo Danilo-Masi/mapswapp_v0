@@ -9,6 +9,9 @@ type AppContextType = {
     // Maps - filter bar
     selectedFilter: string;
     setSelectedFilter: Dispatch<SetStateAction<string>>;
+    // Features - SwitchUser
+    selectedFeature: string;
+    setSelectedFeature: Dispatch<SetStateAction<string>>;
     // Globe
     isStateDialogOpen: boolean;
     setStateDialogOpen: Dispatch<SetStateAction<boolean>>;
@@ -31,6 +34,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     const [selectedItinerary, setSelectedItinerary] = useState("");
     // Maps - filter bar
     const [selectedFilter, setSelectedFilter] = useState("EUROPE");
+    // Features - SwitchUser
+    const [selectedFeature, setSelectedFeature] = useState("0");
     // Globe
     const [isStateDialogOpen, setStateDialogOpen] = useState(false);
     const [isAnalyticsDialogOpen, setAnalyticsDialogOpen] = useState(false);
@@ -49,6 +54,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
                 // Maps - filter bar
                 selectedFilter,
                 setSelectedFilter,
+                // Features - SwitchUser
+                selectedFeature,
+                setSelectedFeature,
                 // Globe
                 isStateDialogOpen,
                 setStateDialogOpen,
