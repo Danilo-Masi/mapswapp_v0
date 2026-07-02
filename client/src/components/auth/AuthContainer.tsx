@@ -1,10 +1,12 @@
-import { itineraries } from "@/data/itineraries";
+import { africaItineraries } from "@/data/itineraries/africaItineraries";
+import { asiaItineraries } from "@/data/itineraries/asiaItineraries";
+import { europeItineraries } from "@/data/itineraries/europeItineraries";
 import useIsMobile from "@/lib/screenWidth";
 import { useMemo, type ReactNode } from "react";
 
-const items = itineraries.filter((i) => i.continent === "ASIA" || i.continent === "AMERICAS");
-const items2 = itineraries.filter((i) => i.continent === "OCEANIA" || i.continent === "AFRICA");
-const items3 = itineraries.filter((i) => i.continent === "EUROPE");
+const items = europeItineraries;
+const items2 = asiaItineraries;
+const items3 = africaItineraries;
 
 function AuthCard({ cover, city }: { cover: string; city: string }) {
     return (

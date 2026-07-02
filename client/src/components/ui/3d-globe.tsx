@@ -119,7 +119,7 @@ interface MarkerProps {
 }
 
 function Marker({ marker, radius}: MarkerProps) {
-  const [hovered, setHovered] = useState(false);
+  const [hovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const groupRef = useRef<THREE.Group>(null);
   const imageGroupRef = useRef<THREE.Group>(null);

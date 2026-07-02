@@ -1,9 +1,10 @@
-import { itineraries } from "@/data/itineraries"
 import { useMemo } from "react"
 import AdCard from "./AdCard";
+import { europeItineraries } from "@/data/itineraries/europeItineraries";
+import { africaItineraries } from "@/data/itineraries/africaItineraries";
 
-const items = itineraries.filter((i) => i.continent === "EUROPE" || i.continent === "AFRICA");
-const items2 = itineraries.filter((i) => i.continent === "ASIA" || i.continent === "AMERICAS");
+const items = europeItineraries;
+const items2 = africaItineraries;
 
 export default function InfiniteCards() {
 

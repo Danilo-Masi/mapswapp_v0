@@ -9,7 +9,7 @@ const Globe3D = lazy(() => import("@/components/ui/3d-globe"));
 // Images
 import bg_image from "../../../assets/bg.webp";
 // Data
-import { itineraries } from "@/data/itineraries";
+import { europeItineraries } from "@/data/itineraries/europeItineraries";
 // Gsap
 import gsap from "gsap";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,7 @@ export default function HeroGlobe() {
 
     // Markers for the globe, memoized to avoid unnecessary recalculations
     const markers = useMemo(() => {
-        return itineraries.map(({ position, city, cover }) => ({
+        return europeItineraries.map(({ position, city, cover }) => ({
             lat: position.lat,
             lng: position.lng,
             label: city,

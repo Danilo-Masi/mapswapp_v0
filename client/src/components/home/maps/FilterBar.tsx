@@ -50,7 +50,7 @@ export default function FilterBar() {
                     key={continent.key}
                     name={continent.label}
                     image={continent.image}
-                    itineraries={0} // se vuoi puoi sostituirlo con conteggio reale
+                    itineraries={0}
                     active={selectedFilter === continent.key}
                     onClick={() => setSelectedFilter(continent.key)}
                 />

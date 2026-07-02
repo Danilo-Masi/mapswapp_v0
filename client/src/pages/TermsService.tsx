@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 // Data
-import { termsOfService } from "@/data/terms";
+import { termsOfService } from "@/data/legal/terms";
 
 export default function TermsService() {
     const navigate = useNavigate();

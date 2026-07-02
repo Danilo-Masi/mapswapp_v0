@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 // Data
-import { privacyPolicy } from "@/data/privacy";
+import { privacyPolicy } from "@/data/legal/privacy";
 
 export default function PrivacyPolicy() {
     const navigate = useNavigate();

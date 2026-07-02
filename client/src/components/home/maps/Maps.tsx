@@ -1,24 +1,47 @@
-import { itineraries } from "../../../data/itineraries";
-import FilterBar from "./FilterBar";
 import { useAppContext } from "@/context/AppContext";
+import FilterBar from "./FilterBar";
+import ItineraryCard from "./ItineraryCard";
+// Data
+import { europeItineraries } from "@/data/itineraries/europeItineraries";
+import { asiaItineraries } from "@/data/itineraries/asiaItineraries";
+import { northAmericaItineraries } from "@/data/itineraries/northamericaItineraries";
+import { southAmericaItineraries } from "@/data/itineraries/southamericaItineraries";
+import { africaItineraries } from "@/data/itineraries/africaItineraries";
+import { oceaniaItineraries } from "@/data/itineraries/oceaniaItineraries";
 
 export default function Maps() {
     const { selectedFilter } = useAppContext();
 
-    const filteredItineraries = itineraries.filter(
-
-        itinerary => itinerary.continent === selectedFilter
-
-    );
+    const filteredItineraries = () => {
+        switch (selectedFilter) {
+            case "EUROPE":
+                return europeItineraries;
+            case "ASIA":
+                return asiaItineraries;
+            case "NORTH_AMERICA":
+                return northAmericaItineraries;
+            case "SOUTH_AMERICA":
+                return southAmericaItineraries;
+            case "AFRICA":
+                return africaItineraries;
+            case "OCEANIA":
+                return oceaniaItineraries;
+            default:
+                return [];
+        }
+    }
 
     return (
         <section className="w-[95%] md:w-5/6 h-min flex flex-col items-center gap-10" id="maps">
+            {/* Title */}
+            <h1 className="text-6xl max-w-xl font-extrabold text-center text-zinc-900 leading-tight text-balance">
+                All over the world
+            </h1>
             {/* Filter Bar */}
             <FilterBar />
-            {/* Card */}
-            {/* 
+            {/* Cards */}
             <div className="w-full h-min flex flex-wrap justify-start items-start gap-8">
-                {filteredItineraries.map((itinerary: any) => (
+                {filteredItineraries().map((itinerary) => (
                     <ItineraryCard
                         key={itinerary.id}
                         id={itinerary.id}
@@ -32,24 +55,6 @@ export default function Maps() {
                     />
                 ))}
             </div>
-            */}
-            <h1>{selectedFilter}</h1>
-
-            <p>
-
-                Found: {filteredItineraries.length}
-
-            </p>
-
-            {filteredItineraries.map(itinerary => (
-
-                <div key={itinerary.id}>
-
-                    {itinerary.title} - {itinerary.continent}
-
-                </div>
-
-            ))}
         </section>
     )
 }

@@ -1,0 +1,58 @@
+export const northAmericaItineraries = [
+    {
+        id: "northamerica_001",
+        title: "New York First Time",
+        description: "The perfect introduction to New York’s iconic landmarks and neighborhoods.",
+        city: "New York",
+        country: "United States",
+        continent: "AMERICAS",
+        cover: "/cover/newyork",
+        cover2: "/cover/newyork_2",
+        duration: 4,
+        spots: 45,
+        position: { lat: 40.7128, lng: -74.0060 },
+        previewSpots: []
+    },
+    {
+        id: "northamerica_002",
+        title: "Miami Beach Vibes",
+        description: "Tropical beaches, vibrant nightlife and the best of South Florida.",
+        city: "Miami",
+        country: "United States",
+        continent: "AMERICAS",
+        cover: "/cover/miami",
+        cover2: "/cover/miami_2",
+        duration: 4,
+        spots: 42,
+        position: { lat: 25.7617, lng: -80.1918 },
+        previewSpots: []
+    },
+    {
+        id: "northamerica_003",
+        title: "Los Angeles Local Favorites",
+        description: "Beach culture, creative neighborhoods and hidden LA gems.",
+        city: "Los Angeles",
+        country: "United States",
+        continent: "AMERICAS",
+        cover: "/cover/losangeles",
+        cover2: "/cover/losangeles_2",
+        duration: 4,
+        spots: 44,
+        position: { lat: 34.0522, lng: -118.2437 },
+        previewSpots: []
+    },
+    {
+        id: "northamerica_004",
+        title: "San Francisco Essentials",
+        description: "The best viewpoints, neighborhoods and local experiences in San Francisco.",
+        city: "San Francisco",
+        country: "United States",
+        continent: "AMERICAS",
+        cover: "/cover/sanfrancisco",
+        cover2: "/cover/sanfrancisco_2",
+        duration: 3,
+        spots: 33,
+        position: { lat: 37.7749, lng: -122.4194 },
+        previewSpots: []
+    },
+];
