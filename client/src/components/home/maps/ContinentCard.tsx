@@ -6,13 +6,7 @@ interface ContinentCardProps {
     onClick?: () => void;
 }
 
-export default function ContinentCard({
-    name,
-    image,
-    itineraries,
-    active = false,
-    onClick,
-}: ContinentCardProps) {
+export default function ContinentCard({ name, image, itineraries, active = false, onClick }: ContinentCardProps) {
     return (
         <button
             onClick={onClick}

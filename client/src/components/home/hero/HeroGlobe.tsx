@@ -1,23 +1,21 @@
 // React
 import { useEffect, useMemo, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { lazy } from "react";
 // UI Components
-import { Earth, Sparkles } from "lucide-react";
+import { Compass } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Navbar from "../navbar/Navbar";
 const Globe3D = lazy(() => import("@/components/ui/3d-globe"));
-// Components
 // Images
 import bg_image from "../../../assets/bg.webp";
 // Data
 import { europeItineraries } from "@/data/itineraries/europeItineraries";
 // Gsap
 import gsap from "gsap";
-import { Button } from "@/components/ui/button";
-import Navbar from "../navbar/Navbar";
+import { scrollToElement } from "@/lib/gsap";
 
 export default function HeroGlobe() {
     const textRef = useRef(null);
-    const navigate = useNavigate();
 
     // Animate text on mount
     useEffect(() => {
@@ -102,20 +100,12 @@ export default function HeroGlobe() {
                         Curated travel itineraries created by locals and real travelers, directly accessible on Google Maps.
                     </h2>
                     {/* Buttons */}
-                    <div className="hero-text w-full flex flex-col md:flex-row gap-3">
-                        <Button
-                            onClick={() => navigate("/registration")}
-                            className="p-6 rounded-2xl bg-blue-500 hover:scale-95 transition-all duration-300 shadow-xl shadow-blue-500/50">
-                            GET EARLY ACCESS
-                            <Sparkles />
-                        </Button>
-                        <Button
-                            onClick={() => navigate("/globe")}
-                            className="p-6 rounded-2xl bg-zinc-800 text-white hover:scale-95 transition-all duration-300">
-                            Your Passport
-                            <Earth />
-                        </Button>
-                    </div>
+                    <Button
+                        onClick={() => scrollToElement("maps")}
+                        className="p-6 rounded-2xl bg-blue-500 hover:scale-95 transition-all duration-300 shadow-xl shadow-blue-500/50">
+                        Explore itineraries
+                        <Compass />
+                    </Button>
                 </div>
                 {/* GLOBE */}
                 <div className="w-full md:w-1/2 h-[50svh] md:h-[80svh] relative overflow-hidden">

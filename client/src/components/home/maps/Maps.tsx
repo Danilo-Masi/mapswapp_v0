@@ -52,6 +52,12 @@ export default function Maps() {
                         duration={itinerary.duration}
                         shortDescription={itinerary.description}
                         spots={itinerary.spots}
+                        price={'price' in itinerary ? itinerary.price : 10}
+                        authorName={'authorName' in itinerary ? itinerary.authorName : ''}
+                        authorAvatar={'authorAvatar' in itinerary ? itinerary.authorAvatar : ""}
+                        rating={'rating' in itinerary ? itinerary.rating : 0}
+                        reviewCount={'reviewCount' in itinerary ? itinerary.reviewCount : 0}
+                        badge={'badge' in itinerary ? itinerary.badge : "undefined"}
                     />
                 ))}
             </div>

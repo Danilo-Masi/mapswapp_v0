@@ -1,6 +1,6 @@
 import { Map, MapControls } from "@/components/ui/map";
 
-export default function PassportMap() {
+export default function GlobeMap() {
   return (
     <Map
       center={[20, 0]}

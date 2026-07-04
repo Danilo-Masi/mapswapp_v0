@@ -1,11 +1,4 @@
-import { useAuth } from "@/context/AuthContext";
-import { DropdownMenuAvatar } from "./DropdownMenu";
-
 export default function Navbar() {
-
-    const auth = useAuth();
-    const user = auth?.user ?? null;
-
     return (
         <nav
             aria-label="Main navigation"
@@ -13,7 +6,6 @@ export default function Navbar() {
             <h1 className="text-xl md:text-2xl font-black text-zinc-50 tracking-wide">
                 Mapswapp
             </h1>
-            {user !== null && <DropdownMenuAvatar />}
         </nav>
     )
 }

@@ -1,11 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
 import TermsService from "./pages/TermsService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import GuestRoute from "./routes/GuestRoute";
-import Passport from "./pages/Passport";
+import Globe from "./pages/Globe";
 
 export default function App() {
   return (
@@ -16,13 +13,7 @@ export default function App() {
           element={<Home />} />
         <Route
           path="/globe"
-          element={<Passport />} />
-        <Route
-          path="/login"
-          element={<GuestRoute><Login /></GuestRoute>} />
-        <Route
-          path="/registration"
-          element={<GuestRoute><Registration /></GuestRoute>} />
+          element={<Globe />} />
         <Route
           path="/terms"
           element={<TermsService />} />
