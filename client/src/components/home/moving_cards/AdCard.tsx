@@ -1,5 +1,3 @@
-import { useAppContext } from "@/context/AppContext";
-
 type AdCardProps = {
     spots: number,
     id: string,
@@ -9,15 +7,9 @@ type AdCardProps = {
 }
 
 export default function AdCard({ id, spots, city, description, cover }: AdCardProps) {
-    const { setSelectedItinerary, setPreviewOpen } = useAppContext();
-
-    const handleSelect = () => {
-        setSelectedItinerary(id);
-        setPreviewOpen(true);
-    }
 
     return (
-        <div className="group relative w-[45svh] h-[50svh] rounded-3xl overflow-hidden cursor-pointer" onClick={handleSelect}>
+        <div className="group relative w-[45svh] h-[50svh] rounded-3xl overflow-hidden cursor-pointer" id={id}>
 
             {/* IMAGE */}
             <img

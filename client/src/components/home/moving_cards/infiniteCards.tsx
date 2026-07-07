@@ -1,10 +1,20 @@
-import { useMemo } from "react"
+import { useMemo, type ReactNode } from "react"
+// UI components
 import AdCard from "./AdCard";
+// Data
 import { europeItineraries } from "@/data/itineraries/europeItineraries";
 import { africaItineraries } from "@/data/itineraries/africaItineraries";
 
 const items = europeItineraries;
 const items2 = africaItineraries;
+
+function CardContainer({ children, animation }: { children: ReactNode; animation: string }) {
+    return (
+        <div className={`flex w-max ${animation} gap-6`}>
+            {children}
+        </div>
+    )
+}
 
 export default function InfiniteCards() {
 
@@ -17,7 +27,7 @@ export default function InfiniteCards() {
             <div className="absolute left-0 top-0 w-20 h-full bg-linear-to-r from-zinc-50 via-zinc-50/30 to-transparent z-10" />
             <div className="absolute right-0 top-0 w-20 h-full bg-linear-to-l from-zinc-50 via-zinc-50/30 to-transparent z-10" />
             {/* Track */}
-            <div className="flex w-max animate-scroll gap-6">
+            <CardContainer animation="animate-scroll">
                 {duplicated.map((item, i) => (
                     <AdCard
                         key={i}
@@ -28,8 +38,8 @@ export default function InfiniteCards() {
                         cover={item.cover2}
                     />
                 ))}
-            </div>
-            <div className="flex w-max animate-scroll-reverse gap-6">
+            </CardContainer>
+            <CardContainer animation="animate-scroll-reverse">
                 {duplicated2.map((item, i) => (
                     <AdCard
                         key={i}
@@ -40,7 +50,7 @@ export default function InfiniteCards() {
                         cover={item.cover2}
                     />
                 ))}
-            </div>
+            </CardContainer>
         </div>
     )
 }

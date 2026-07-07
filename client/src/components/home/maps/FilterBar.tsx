@@ -5,6 +5,7 @@ type Continent = {
     key: "EUROPE" | "ASIA" | "NORTH_AMERICA" | "SOUTH_AMERICA" | "AFRICA" | "OCEANIA";
     label: string;
     image: string;
+    numberOfItineraries: number;
 };
 
 const continents: Continent[] = [
@@ -12,31 +13,37 @@ const continents: Continent[] = [
         key: "EUROPE",
         label: "Europe",
         image: "/continents/Europe.svg",
+        numberOfItineraries: 9,
     },
     {
         key: "ASIA",
         label: "Asia",
         image: "/continents/Asia.svg",
+        numberOfItineraries: 5, 
     },
     {
         key: "NORTH_AMERICA",
         label: "North America",
         image: "/continents/North-America.svg",
+        numberOfItineraries: 4,
     },
     {
         key: "SOUTH_AMERICA",
         label: "South America",
         image: "/continents/South-America.svg",
+        numberOfItineraries: 7,
     },
     {
         key: "AFRICA",
         label: "Africa",
         image: "/continents/Africa.svg",
+        numberOfItineraries: 9,
     },
     {
         key: "OCEANIA",
         label: "Oceania",
         image: "/continents/Oceania.svg",
+        numberOfItineraries: 3,
     },
 ];
 
@@ -50,7 +57,7 @@ export default function FilterBar() {
                     key={continent.key}
                     name={continent.label}
                     image={continent.image}
-                    itineraries={0}
+                    itineraries={continent.numberOfItineraries}
                     active={selectedFilter === continent.key}
                     onClick={() => setSelectedFilter(continent.key)}
                 />
