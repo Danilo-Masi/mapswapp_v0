@@ -14,20 +14,6 @@ export const oceaniaItineraries = [
         previewSpots: []
     },
     {
-        id: "oceania_002",
-        title: "Sydney Beaches & Lifestyle",
-        description: "Coastal walks, surf culture and Sydney's best local spots.",
-        city: "Sydney",
-        country: "Australia",
-        continent: "OCEANIA",
-        cover: "/cover/sydney_lifestyle",
-        cover2: "/cover/sydney_lifestyle_2",
-        duration: 4,
-        spots: 41,
-        position: { lat: -33.8688, lng: 151.2093 },
-        previewSpots: []
-    },
-    {
         id: "oceania_003",
         title: "Melbourne Coffee & Culture",
         description: "Hidden laneways, cafés and Australia's creative capital.",
@@ -109,20 +95,6 @@ export const oceaniaItineraries = [
         duration: 3,
         spots: 30,
         position: { lat: -31.9505, lng: 115.8605 },
-        previewSpots: []
-    },
-    {
-        id: "oceania_009",
-        title: "Gold Coast Beaches & Lifestyle",
-        description: "Surf, oceanfront living and Australia's beach culture.",
-        city: "Gold Coast",
-        country: "Australia",
-        continent: "OCEANIA",
-        cover: "/cover/goldcoast",
-        cover2: "/cover/goldcoast_2",
-        duration: 3,
-        spots: 34,
-        position: { lat: -28.0167, lng: 153.4000 },
         previewSpots: []
     },
     {

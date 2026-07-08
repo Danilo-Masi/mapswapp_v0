@@ -84,20 +84,6 @@ export const africaItineraries = [
         previewSpots: []
     },
     {
-        id: "africa_007",
-        title: "Coastal Morocco",
-        description: "Ocean views, whitewashed streets and a slower Moroccan experience.",
-        city: "Essaouira",
-        country: "Morocco",
-        continent: "AFRICA",
-        cover: "/cover/essaouira",
-        cover2: "/cover/essaouira_2",
-        duration: 3,
-        spots: 30,
-        position: { lat: 31.5085, lng: -9.7595 },
-        previewSpots: []
-    },
-    {
         id: "africa_008",
         title: "Urban Nairobi",
         description: "Coffee culture, local life and one of Africa's most dynamic cities.",
@@ -109,20 +95,6 @@ export const africaItineraries = [
         duration: 3,
         spots: 31,
         position: { lat: -1.2921, lng: 36.8219 },
-        previewSpots: []
-    },
-    {
-        id: "africa_009",
-        title: "Ancient Egypt in Luxor",
-        description: "Temples, tombs and the most impressive archaeological sites in Egypt.",
-        city: "Luxor",
-        country: "Egypt",
-        continent: "AFRICA",
-        cover: "/cover/luxor",
-        cover2: "/cover/luxor_2",
-        duration: 3,
-        spots: 35,
-        position: { lat: 25.6872, lng: 32.6396 },
         previewSpots: []
     },
     {

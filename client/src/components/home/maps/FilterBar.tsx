@@ -13,19 +13,19 @@ const continents: Continent[] = [
         key: "EUROPE",
         label: "Europe",
         image: "/continents/Europe.svg",
-        numberOfItineraries: 9,
+        numberOfItineraries: 8,
     },
     {
         key: "ASIA",
         label: "Asia",
         image: "/continents/Asia.svg",
-        numberOfItineraries: 5, 
+        numberOfItineraries: 9, 
     },
     {
         key: "NORTH_AMERICA",
         label: "North America",
         image: "/continents/North-America.svg",
-        numberOfItineraries: 4,
+        numberOfItineraries: 6,
     },
     {
         key: "SOUTH_AMERICA",

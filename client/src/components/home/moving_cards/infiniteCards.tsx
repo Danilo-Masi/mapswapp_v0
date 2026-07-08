@@ -3,10 +3,12 @@ import { useMemo, type ReactNode } from "react"
 import AdCard from "./AdCard";
 // Data
 import { europeItineraries } from "@/data/itineraries/europeItineraries";
-import { africaItineraries } from "@/data/itineraries/africaItineraries";
+import { asiaItineraries } from "@/data/itineraries/asiaItineraries";
+import { northAmericaItineraries } from "@/data/itineraries/northamericaItineraries";
 
 const items = europeItineraries;
-const items2 = africaItineraries;
+const item3 = asiaItineraries;
+const items4 = northAmericaItineraries;
 
 function CardContainer({ children, animation }: { children: ReactNode; animation: string }) {
     return (
@@ -19,7 +21,8 @@ function CardContainer({ children, animation }: { children: ReactNode; animation
 export default function InfiniteCards() {
 
     const duplicated = useMemo(() => [...items, ...items], [items]);
-    const duplicated2 = useMemo(() => [...items2, ...items2], [items2]);
+    const duplicated2 = useMemo(() => [...item3, ...item3], [item3]);
+    const duplicated3 = useMemo(() => [...items4, ...items4], [items4]);
 
     return (
         <div className="w-full flex flex-col gap-5 overflow-hidden relative">
@@ -41,6 +44,18 @@ export default function InfiniteCards() {
             </CardContainer>
             <CardContainer animation="animate-scroll-reverse">
                 {duplicated2.map((item, i) => (
+                    <AdCard
+                        key={i}
+                        id={item.id}
+                        spots={item.spots}
+                        city={item.city}
+                        description={item.description}
+                        cover={item.cover2}
+                    />
+                ))}
+            </CardContainer>
+            <CardContainer animation="animate-scroll">
+                {duplicated3.map((item, i) => (
                     <AdCard
                         key={i}
                         id={item.id}

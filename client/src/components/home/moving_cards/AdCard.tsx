@@ -9,7 +9,7 @@ type AdCardProps = {
 export default function AdCard({ id, spots, city, description, cover }: AdCardProps) {
 
     return (
-        <div className="group relative w-[45svh] h-[50svh] rounded-3xl overflow-hidden cursor-pointer" id={id}>
+        <div className="group relative w-[40svh] h-[40svh] rounded-3xl overflow-hidden cursor-pointer" id={id}>
 
             {/* IMAGE */}
             <img
@@ -33,7 +33,7 @@ export default function AdCard({ id, spots, city, description, cover }: AdCardPr
             <div className="absolute bottom-0 left-0 w-full p-5 flex flex-col">
 
                 {/* CITY */}
-                <h2 className="text-white text-3xl font-black tracking-tight italic">
+                <h2 className="text-white text-2xl font-black tracking-tight italic">
                     {city}
                 </h2>
 

@@ -6,8 +6,8 @@ export const europeItineraries = [
         city: "London",
         country: "United Kingdom",
         continent: "EUROPE",
-        cover: "/cover/london.webp",
-        cover2: "/cover/london_2.webp",
+        cover: "/cover/europe/london.webp",
+        cover2: "/cover/europe/london_2.webp",
         duration: 3,
         spots: 21,
         position: { lat: 38.7223, lng: -9.1393 },
@@ -31,8 +31,8 @@ export const europeItineraries = [
         city: "Paris",
         country: "France",
         continent: "EUROPE",
-        cover: "/cover/paris.webp", // TO UPDATE
-        cover2: "/cover/paris_2.webp", // TO UPDATE
+        cover: "/cover/europe/paris.webp", // TO UPDATE
+        cover2: "/cover/europe/paris_2.webp", // TO UPDATE
         duration: 4,
         spots: 40,
         position: { lat: 48.8566, lng: 2.3522 },
@@ -56,8 +56,8 @@ export const europeItineraries = [
         city: "Rome",
         country: "Italy",
         continent: "EUROPE",
-        cover: "/cover/rome.webp", // TO UPDATE
-        cover2: "/cover/rome_2.webp", // TO UPDATE
+        cover: "/cover/europe/rome.webp", // TO UPDATE
+        cover2: "/cover/europe/rome_2.webp", // TO UPDATE
         duration: 2,
         spots: 22,
         position: { lat: 45.4408, lng: 12.3155 },
@@ -81,8 +81,8 @@ export const europeItineraries = [
         city: "Lisbon",
         country: "Portugal",
         continent: "EUROPE",
-        cover: "/cover/lisbon.webp", // TO UPDATE
-        cover2: "/cover/lisbon_2.webp", // TO UPDATE
+        cover: "/cover/europe/lisbon.webp", // TO UPDATE
+        cover2: "/cover/europe/lisbon_2.webp", // TO UPDATE
         duration: 3,
         spots: 21,
         position: { lat: 38.7223, lng: -9.1393 },
@@ -106,8 +106,8 @@ export const europeItineraries = [
         city: "Budapest",
         country: "Hungary",
         continent: "EUROPE",
-        cover: "/cover/budapest.webp", // TO UPDATE
-        cover2: "/cover/budapest_2.webp", // TO UPDATE
+        cover: "/cover/europe/budapest.webp", // TO UPDATE
+        cover2: "/cover/europe/budapest_2.webp", // TO UPDATE
         duration: 3,
         spots: 33,
         position: { lat: 47.4979, lng: 19.0402 },
@@ -131,8 +131,8 @@ export const europeItineraries = [
         city: "Amsterdam",
         country: "Netherlands",
         continent: "EUROPE",
-        cover: "/cover/amsterdam.webp", // TO UPDATE
-        cover2: "/cover/amsterdam_2.webp", // TO UPDATE
+        cover: "/cover/europe/amsterdam.webp", // TO UPDATE
+        cover2: "/cover/europe/amsterdam_2.webp", // TO UPDATE
         duration: 3,
         spots: 32,
         position: { lat: 52.3676, lng: 4.9041 },
@@ -151,38 +151,13 @@ export const europeItineraries = [
     },
     {
         id: "europe_007",
-        title: "Vienna Classics",
-        description: "A well-paced route through the city’s canals, creative corners, and everyday spots that make Vienna feel lived-in, not touristy.",
-        city: "Vienna",
-        country: "Austria",
-        continent: "EUROPE",
-        cover: "/cover/vienna.webp", // TO UPDATE
-        cover2: "/cover/vienna_2.webp", // TO UPDATE
-        duration: 3,
-        spots: 32,
-        position: { lat: 52.3676, lng: 4.9041 },
-        previewSpots: [
-            { id: "1", title: "Dam Square", position: { lat: 52.37307, lng: 4.89264 }, type: "activity", adress: "Dam, 1012 Amsterdam, Netherlands" },
-            { id: "2", title: "Begijnhof", position: { lat: 52.36962, lng: 4.89018 }, type: "activity", adress: "Begijnhof, 1012 Amsterdam, Netherlands" },
-            { id: "3", title: "De Negen Straatjes", position: { lat: 52.37038, lng: 4.88605 }, type: "activity", adress: "Negen Straatjes, 1016 Amsterdam, Netherlands" },
-            { id: "4", title: "Koffiespot", position: { lat: 52.3694, lng: 4.88059 }, type: "food", adress: "Elandsgracht 53, 1016 TN Amsterdam, Netherlands" }
-        ],
-        price: 14.99,
-        authorName: "Danilo",
-        authorAvatar: "/cover/vienna.webp",
-        rating: 4.5,
-        reviewCount: 120,
-        badge: "Best Seller",
-    },
-    {
-        id: "europe_008",
-        title: "Florence beyond the museums",
-        description: "A delightful tour through Florence's historic streets, art galleries, and local markets that showcase the city's rich cultural heritage.",
-        city: "Florence",
+        title: "Venice Classics",
+        description: "A well-paced route through the city’s canals, creative corners, and everyday spots that make Venice feel lived-in, not touristy.",
+        city: "Venice",
         country: "Italy",
         continent: "EUROPE",
-        cover: "/cover/florence_2.webp", // TO UPDATE
-        cover2: "/cover/florence_2.webp", // TO UPDATE
+        cover: "/cover/europe/venice.webp", // TO UPDATE
+        cover2: "/cover/europe/venice_2.webp", // TO UPDATE
         duration: 3,
         spots: 32,
         position: { lat: 52.3676, lng: 4.9041 },
@@ -194,9 +169,9 @@ export const europeItineraries = [
         ],
         price: 14.99,
         authorName: "Danilo",
-        authorAvatar: "/cover/florence_2.webp",
-        rating: 4.7,
-        reviewCount: 95,
+        authorAvatar: "/cover/europe/venice.webp",
+        rating: 4.5,
+        reviewCount: 120,
         badge: "Best Seller",
     },
     {
@@ -206,8 +181,8 @@ export const europeItineraries = [
         city: "Seville",
         country: "Spain",
         continent: "EUROPE",
-        cover: "/cover/seville_card.webp", // TO UPDATE
-        cover2: "/cover/seville_card_2.webp", // TO UPDATE
+        cover: "/cover/europe/seville.webp", // TO UPDATE
+        cover2: "/cover/europe/seville_2.webp", // TO UPDATE
         duration: 3,
         spots: 35,
         position: { lat: 37.3891, lng: -5.9845 },
@@ -219,7 +194,7 @@ export const europeItineraries = [
         ],
         price: 14.99,
         authorName: "Danilo",
-        authorAvatar: "/cover/seville_card.webp",
+        authorAvatar: "/cover/europe/seville.webp",
         rating: 4.6,
         reviewCount: 110,
         badge: "Best Seller",
