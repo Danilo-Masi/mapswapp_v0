@@ -31,19 +31,19 @@ const continents: Continent[] = [
         key: "SOUTH_AMERICA",
         label: "South America",
         image: "/continents/South-America.svg",
-        numberOfItineraries: 7,
+        numberOfItineraries: 6,
     },
     {
         key: "AFRICA",
         label: "Africa",
         image: "/continents/Africa.svg",
-        numberOfItineraries: 9,
+        numberOfItineraries: 5,
     },
     {
         key: "OCEANIA",
         label: "Oceania",
         image: "/continents/Oceania.svg",
-        numberOfItineraries: 3,
+        numberOfItineraries: 6,
     },
 ];
 

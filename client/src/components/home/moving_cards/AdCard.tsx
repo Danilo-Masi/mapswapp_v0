@@ -9,7 +9,7 @@ type AdCardProps = {
 export default function AdCard({ id, spots, city, description, cover }: AdCardProps) {
 
     return (
-        <div className="group relative w-[40svh] h-[40svh] rounded-3xl overflow-hidden cursor-pointer" id={id}>
+        <div className="group relative w-[40svh] h-[40svh] rounded-3xl overflow-hidden" id={id}>
 
             {/* IMAGE */}
             <img

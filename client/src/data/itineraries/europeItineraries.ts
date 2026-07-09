@@ -175,7 +175,7 @@ export const europeItineraries = [
         badge: "Best Seller",
     },
     {
-        id: "europe_009",
+        id: "europe_008",
         title: "Seville Local tapas",
         description: "A vibrant tour through Seville's historic streets, flamenco venues, and local markets that showcase the city's rich cultural heritage.",
         city: "Seville",
