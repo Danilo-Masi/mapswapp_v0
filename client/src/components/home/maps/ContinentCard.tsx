@@ -10,25 +10,11 @@ export default function ContinentCard({ name, image, itineraries, active = false
     return (
         <button
             onClick={onClick}
-            className={`
-                group
-                relative
-                w-36
-                h-36
-                rounded-3xl
-                border-2
-                bg-white
-                overflow-hidden
-                transition-all
-                duration-300
-                cursor-pointer
-                hover:-translate-y-1
-                hover:shadow-xl
+            className={`group relative w-[calc(50%-8px)] md:w-36 md:h-36 aspect-square rounded-3xl border-2 bg-white overflow-hidden transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-xl
                 ${active
                     ? "border-blue-500 shadow-lg shadow-blue-500/20"
                     : "border-zinc-200 hover:border-blue-300"}
-            `}
-        >
+            `}>
             {/* Active indicator */}
             {active && (
                 <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-blue-500" />

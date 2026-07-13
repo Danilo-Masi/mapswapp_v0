@@ -1,12 +1,11 @@
-import PhoneMockup from "./PhoneMockup";
 import { useState, type Dispatch, type SetStateAction } from "react";
 // Data
 import { days } from "@/data/mapData";
 // Images
 import newyork_card from "../../../assets/features/newyork.webp";
-import lisbon_card from "../../../assets/features/lisbon.webp";
-import london_card from "../../../assets/features/london.webp";
+// UI components
 import { Switch } from "@/components/ui/switch";
+import PhoneMockup from "./PhoneMockup";
 
 interface TextSectionProps {
     span: string;
@@ -14,19 +13,21 @@ interface TextSectionProps {
     titleHighlights: string;
     description: string;
     info: string;
+    as?: "h2" | "h3";
 }
 
-function TextSection({ span, title, titleHighlights, description, info }: TextSectionProps) {
+function TextSection({ span, title, titleHighlights, description, info, as = "h3" }: TextSectionProps) {
+    const Heading = as;
     return (
         <>
-            <span className="text-xs font-semibold text-blue-500 uppercase tracking-wider mb-3">
+            <span className="text-sm font-medium text-blue-500 mb-1">
                 {span}
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-zinc-900 text-balance mb-3">
+            <Heading className="text-2xl md:text-3xl font-semibold text-zinc-900 leading-tight mb-2">
                 {title}
                 <span className="text-blue-500"> {titleHighlights}</span>
-            </h1>
-            <p className="text-base text-zinc-600 leading-relaxed text-balance mb-1">
+            </Heading>
+            <p className="text-zinc-600 text-sm md:text-base text-balance">
                 {description}
             </p>
             <p className="text-sm text-zinc-400 leading-relaxed text-balance">
@@ -43,11 +44,12 @@ function Feature1() {
             {/* TEXT */}
             <div className="w-full md:w-1/2 flex flex-col justify-center p-5 order-1 md:order-2">
                 <TextSection
-                    span="Explore"
-                    title="Pick your next"
-                    titleHighlights="adventure"
-                    description="Discover ready to follow itineraries built by real travelers. Hidden spots, local vibes, zero planning."
-                    info="Soon you’ll be able to sell your own itineraries too"
+                    as="h2"
+                    span="Discover"
+                    title="Find your next"
+                    titleHighlights="trip"
+                    description="Browse ready to follow travel itineraries created by real travelers. Hidden gems, local favorites, zero planning required."
+                    info="Every itinerary you see here was crafted by a fellow traveler  and you can create your own too"
                 />
             </div>
 
@@ -57,42 +59,51 @@ function Feature1() {
                 {/* BACK */}
                 <div className="absolute w-[70%] md:w-4/5 h-[85%] rounded-2xl overflow-hidden border border-zinc-200 shadow-xl 
                     top-10 right-16 md:right-20 
-                    rotate-[-8deg] scale-95 opacity-50 blur-[2px]
+                    rotate-[-8deg] scale-95 opacity-40 blur-[2px]
                     group-hover:translate-x-2 group-hover:-translate-y-2 transition duration-500">
 
-                    <img src={lisbon_card} className="w-full h-full object-cover" />
+                    <img
+                        src={newyork_card}
+                        alt="Self-guided travel itinerary for Lisbon"
+                        className="w-full h-full object-cover" />
                 </div>
 
                 {/* MIDDLE */}
                 <div className="absolute w-[70%] md:w-4/5 h-[85%] rounded-2xl overflow-hidden border border-zinc-200 shadow-xl 
                     top-5 right-10 md:right-12 
-                    rotate-[-4deg] scale-100 opacity-80
+                    rotate-[-4deg] scale-100 opacity-60
                     group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-500">
 
-                    <img src={london_card} className="w-full h-full object-cover" />
+                    <img
+                        src={newyork_card}
+                        alt="Self-guided travel itinerary for London"
+                        className="w-full h-full object-cover" />
                 </div>
 
                 {/* FRONT (MAIN CARD) */}
                 <div className="relative w-[75%] md:w-[85%] h-[90%] rounded-2xl overflow-hidden border border-zinc-200 shadow-2xl group-hover:scale-[1.03] transition duration-300">
 
-                    <img src={newyork_card} className="w-full h-full object-cover" />
+                    <img
+                        src={newyork_card}
+                        alt="7-day New York City travel itinerary with local recommendations"
+                        className="w-full h-full object-cover" />
 
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
                     <div className="absolute bottom-0 p-4 text-white flex flex-col gap-1">
                         <span className="text-xs text-white/70">New York</span>
                         <h3 className="text-lg font-semibold leading-tight text-balance">
-                            7 days in NYC — Real local experience
+                            7 days in NYC — a real local experience
                         </h3>
                         <span className="text-sm font-medium text-blue-300">
-                            €34.99
+                            $34.99
                         </span>
                     </div>
                 </div>
 
                 {/* FLOATING COUNTER */}
                 <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-zinc-800 shadow-md">
-                    +20 itineraries
+                    +20 itineraries available
                 </div>
 
             </div>
@@ -109,22 +120,31 @@ function Feature2({ daySelected, setDaySelected }: { daySelected: number; setDay
                 <TextSection
                     span="How it works"
                     title="Plan nothing."
-                    titleHighlights="Follow everyhing."
-                    description="Your trip is already organized day by day. Just open it, follow the route, and enjoy the experience."
-                    info="Turn days on or off anytime, adapt it to your trip"
+                    titleHighlights="Follow everything."
+                    description="Your trip is already organized day by day. Just open your itinerary, follow the route, and enjoy the experience."
+                    info="Preview any day of your itinerary before you go"
                 />
             </div>
 
-            {/* SWITCH */}
+            {/* DAY SELECTOR */}
             <div className="w-full md:w-1/2 flex items-center justify-center">
-                <div className="w-full max-w-sm flex flex-col gap-3">
+                <div
+                    className="w-full max-w-sm flex flex-col gap-3"
+                    role="listbox"
+                    aria-label="Select a day to preview in your itinerary"
+                >
                     {days.map((day) => {
                         const isActive = daySelected === day.id
                         return (
                             <div
                                 key={day.id}
+                                role="option"
+                                aria-selected={isActive}
+                                tabIndex={0}
                                 className={`flex flex-col gap-2 px-4 py-3 rounded-xl border shadow-sm transition cursor-pointer ${isActive ? "bg-blue-50 border-blue-300 scale-[1.02]" : "bg-white border-zinc-200 hover:scale-[1.02]"}`}
-                                onClick={() => setDaySelected(day.id)}>
+                                onClick={() => setDaySelected(day.id)}
+                                onKeyDown={(e) => e.key === "Enter" && setDaySelected(day.id)}
+                            >
                                 <div className="flex items-center justify-between gap-3">
                                     <span className="text-sm font-semibold text-clip text-zinc-800">
                                         {day.title}
@@ -132,6 +152,7 @@ function Feature2({ daySelected, setDaySelected }: { daySelected: number; setDay
                                     <Switch
                                         checked={isActive}
                                         onCheckedChange={() => setDaySelected(day.id)}
+                                        aria-label={`Preview ${day.title}`}
                                         className="data-[state=checked]:bg-blue-500 cursor-pointer" />
                                 </div>
                             </div>
@@ -150,11 +171,11 @@ function Feature3({ daySelected }: { daySelected: number }) {
             {/* TEXT */}
             <div className="w-full h-min flex flex-col items-center text-center">
                 <TextSection
-                    span="Seamless experience"
+                    span="Seamless on the go"
                     title="Open it. Follow it."
                     titleHighlights="Go."
-                    description="Every stop and route is already inside Google Maps. No new apps. No confusion."
-                    info="Just tap and start exploring"
+                    description="Every stop and route is already mapped inside Google Maps. No new apps to learn, no confusion once you land."
+                    info="Just tap a stop and start exploring"
                 />
             </div>
             {/* IMAGE */}
@@ -167,7 +188,10 @@ function Feature3({ daySelected }: { daySelected: number }) {
 export default function Buyer() {
     const [daySelected, setDaySelected] = useState<number>(1);
     return (
-        <div className="w-full h-auto md:h-[110svh] flex flex-col md:flex-row gap-16 md:gap-5">
+        <section
+            id="discover-travel-itineraries"
+            aria-label="Discover and follow travel itineraries"
+            className="w-full h-auto md:h-[110svh] flex flex-col md:flex-row gap-16 md:gap-5">
             <div className="w-full md:w-2/3 h-full flex flex-col items-start justify-start gap-16 md:gap-5">
                 <Feature1 />
                 <Feature2
@@ -175,6 +199,6 @@ export default function Buyer() {
                     setDaySelected={setDaySelected} />
             </div>
             <Feature3 daySelected={daySelected} />
-        </div>
+        </section>
     )
 }

@@ -51,7 +51,7 @@ export default function FilterBar() {
     const { selectedFilter, setSelectedFilter } = useAppContext();
 
     return (
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-start gap-4">
             {continents.map((continent) => (
                 <ContinentCard
                     key={continent.key}

@@ -1,0 +1,17 @@
+export interface Itinerary {
+    id: string,
+    city: string,
+    country: string,
+    title: string,
+    shortDescription: string,
+    longDescription: string,
+    badge: string,
+    price: number,
+    spots: number,
+    previewSposts: [id: string, title: string, lat: number, lng: number, type: string, address: string][],
+    images: string[],
+    authorName: string,
+    authorAvatar: string,
+    rating: number,
+    reviews: number,
+}
